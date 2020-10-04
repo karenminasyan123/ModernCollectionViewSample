@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sample Collection View Controller-->
+        <!--Apps Collection View Controller-->
         <scene sceneID="Bf1-3e-Ngp">
             <objects>
-                <collectionViewController id="Kk9-0q-nNC" customClass="SampleCollectionViewController" customModule="ModernCollectionViewSample" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="Kk9-0q-nNC" customClass="AppsCollectionViewController" customModule="ModernCollectionViewSample" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="VBZ-gX-nJ6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

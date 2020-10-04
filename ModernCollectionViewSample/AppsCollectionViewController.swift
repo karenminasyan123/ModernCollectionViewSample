@@ -7,16 +7,21 @@
 
 import UIKit
 
-class SampleCollectionViewController: UICollectionViewController {
+class AppsCollectionViewController: UICollectionViewController {
     static let headerElementKind = "header-element-kind"
 
+    lazy var collections: [AppCollection] = {
+        let controller = AppsController()
+        return controller.generateCollections()
+    }()
+    
     enum SectionKind: Int, CaseIterable {
         case longList,
              shortList,
              doubleList,
              trippleList,
              categoryList
-        
+
         var rows: Int {
             switch self {
             case .longList: return 1
@@ -29,11 +34,11 @@ class SampleCollectionViewController: UICollectionViewController {
         
         var groupHeight: CGFloat {
             switch self {
-            case .longList: return 300
-            case .shortList: return 200
-            case .doubleList: return 300
-            case .trippleList: return 300
-            case .categoryList: return 300
+            case .longList: return 0.3
+            case .shortList: return 0.2
+            case .doubleList: return 0.3
+            case .trippleList: return 0.3
+            case .categoryList: return 0.3
             }
         }
         
@@ -44,7 +49,8 @@ class SampleCollectionViewController: UICollectionViewController {
             }
         }
     }
-    var dataSource: UICollectionViewDiffableDataSource<Int, Int>! = nil
+
+    var dataSource: UICollectionViewDiffableDataSource<AppCollection, AppModel>! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,28 +58,39 @@ class SampleCollectionViewController: UICollectionViewController {
         configureHierarchy()
         configureDataSource()
     }
+    
+    func sectionKind(sectionIndex: Int) -> SectionKind {
+        let sortIndex = collections[sectionIndex].sortIndex
+        switch sortIndex {
+        case 0: return .longList
+        case 1: return .shortList
+        case 2: return .doubleList
+        case 3: return .trippleList
+        default: return .longList
+        }
+    }
 }
 
-extension SampleCollectionViewController {
+extension AppsCollectionViewController {
 
-    func createLayout(count: Int = 1, height: CGFloat = 150) -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-
-            let sectionKind = SectionKind(rawValue: sectionIndex)!
+    func createLayout() -> UICollectionViewCompositionalLayout {
+        UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
+            guard let self = self else { return nil }
+            let sectionKind = self.sectionKind(sectionIndex: sectionIndex)
             // The group auto-calculates the actual item width to make
             // the requested number of columns fit, so this widthDimension is ignored.
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5)
 
             let groupWidth = layoutEnvironment.container.contentSize.width * sectionKind.groupFractianalWidth
-            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(groupWidth), heightDimension: .absolute(sectionKind.groupHeight))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(groupWidth), heightDimension: .fractionalHeight(sectionKind.groupHeight))
             let nestedGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: sectionKind.rows)
             let section = NSCollectionLayoutSection(group: nestedGroup)
             
             let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
-            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: SampleCollectionViewController.headerElementKind, alignment: .top)
-            
+            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: AppsCollectionViewController.headerElementKind, alignment: .top)
+
             section.boundarySupplementaryItems = [header]
             // add leading and trailing insets to the section so groups are aligned to the center
 //            let sectionSideInset = (layoutEnvironment.container.contentSize.width - groupWidth) / 2
@@ -86,7 +103,7 @@ extension SampleCollectionViewController {
     }
 }
 
-extension SampleCollectionViewController {
+extension AppsCollectionViewController {
     func configureHierarchy() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -95,17 +112,26 @@ extension SampleCollectionViewController {
     }
     func configureDataSource() {
         
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, Int> { (cell, indexPath, identifier) in
+        let largeCellRegistration = UICollectionView.CellRegistration<AppLargeCell, AppModel> { (cell, indexPath, model) in
+            cell.setup(appModel: model)
+        }
+        
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, AppModel> { (cell, indexPath, model) in
             cell.backgroundColor = .red
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, identifier: Int) -> UICollectionViewCell? in
-            // Return the cell.
-            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
+        dataSource = UICollectionViewDiffableDataSource<AppCollection, AppModel>(collectionView: collectionView) {
+            (collectionView: UICollectionView, indexPath: IndexPath, model: AppModel) -> UICollectionViewCell? in
+            let sectionKind = self.sectionKind(sectionIndex: indexPath.section)
+            switch sectionKind {
+            case .longList:
+                return collectionView.dequeueConfiguredReusableCell(using: largeCellRegistration, for: indexPath, item: model)
+            default:
+                return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: model)
+            }
         }
         
-        let supplementaryRegistration = UICollectionView.SupplementaryRegistration<TitleSupplementaryView>(elementKind: SampleCollectionViewController.headerElementKind) { supplementaryView, string, indexPath in
+        let supplementaryRegistration = UICollectionView.SupplementaryRegistration<TitleSupplementaryView>(elementKind: AppsCollectionViewController.headerElementKind) { supplementaryView, string, indexPath in
             let sectionKind = SectionKind(rawValue: indexPath.section)!
             supplementaryView.label.text = "." + String(describing: sectionKind)
         }
@@ -116,20 +142,18 @@ extension SampleCollectionViewController {
         }
 
         // initial data
-        var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
-        var identifierOffset = 0
-        let itemsPerSection = 18
-        SectionKind.allCases.forEach {
-            snapshot.appendSections([$0.rawValue])
-            let maxIdentifier = identifierOffset + itemsPerSection
-            snapshot.appendItems(Array(identifierOffset ..< maxIdentifier))
-            identifierOffset += itemsPerSection
+        var snapshot = NSDiffableDataSourceSnapshot<AppCollection, AppModel>()
+
+        collections.forEach { collection in
+            snapshot.appendSections([collection])
+            snapshot.appendItems(collection.apps)
         }
+
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 
-extension SampleCollectionViewController {
+extension AppsCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
