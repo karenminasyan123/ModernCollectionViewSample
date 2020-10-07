@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C1819BB2528D26A006FA6F7 /* TitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819BA2528D26A006FA6F7 /* TitleSupplementaryView.swift */; };
-		1C1819C9252A29BF006FA6F7 /* AppLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819C8252A29BF006FA6F7 /* AppLargeCell.swift */; };
+		1C1819C9252A29BF006FA6F7 /* PrimaryAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819C8252A29BF006FA6F7 /* PrimaryAppCell.swift */; };
 		1C1819CD252A2D5C006FA6F7 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819CC252A2D5C006FA6F7 /* AppModel.swift */; };
 		1C1819D2252A2FBA006FA6F7 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819D1252A2FBA006FA6F7 /* AppsController.swift */; };
 		1CD2A91B252877FE004BBD65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2A91A252877FE004BBD65 /* AppDelegate.swift */; };
@@ -17,11 +17,12 @@
 		1CD2A922252877FE004BBD65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD2A920252877FE004BBD65 /* Main.storyboard */; };
 		1CD2A92425287801004BBD65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD2A92325287801004BBD65 /* Assets.xcassets */; };
 		1CD2A92725287801004BBD65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD2A92525287801004BBD65 /* LaunchScreen.storyboard */; };
+		1CDEA5BA252D095700D0B67C /* SecondaryAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDEA5B8252D095700D0B67C /* SecondaryAppCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C1819BA2528D26A006FA6F7 /* TitleSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleSupplementaryView.swift; sourceTree = "<group>"; };
-		1C1819C8252A29BF006FA6F7 /* AppLargeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLargeCell.swift; sourceTree = "<group>"; };
+		1C1819C8252A29BF006FA6F7 /* PrimaryAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryAppCell.swift; sourceTree = "<group>"; };
 		1C1819CC252A2D5C006FA6F7 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		1C1819D1252A2FBA006FA6F7 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
 		1CD2A917252877FE004BBD65 /* ModernCollectionViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernCollectionViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +33,7 @@
 		1CD2A92325287801004BBD65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CD2A92625287801004BBD65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CD2A92825287801004BBD65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CDEA5B8252D095700D0B67C /* SecondaryAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryAppCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,8 +50,9 @@
 		1C1819BD2528D26E006FA6F7 /* Cells and supplementary views */ = {
 			isa = PBXGroup;
 			children = (
+				1C1819C8252A29BF006FA6F7 /* PrimaryAppCell.swift */,
 				1C1819BA2528D26A006FA6F7 /* TitleSupplementaryView.swift */,
-				1C1819C8252A29BF006FA6F7 /* AppLargeCell.swift */,
+				1CDEA5B8252D095700D0B67C /* SecondaryAppCell.swift */,
 			);
 			path = "Cells and supplementary views";
 			sourceTree = "<group>";
@@ -167,8 +170,9 @@
 			files = (
 				1CD2A91F252877FE004BBD65 /* AppsCollectionViewController.swift in Sources */,
 				1C1819CD252A2D5C006FA6F7 /* AppModel.swift in Sources */,
+				1CDEA5BA252D095700D0B67C /* SecondaryAppCell.swift in Sources */,
 				1C1819BB2528D26A006FA6F7 /* TitleSupplementaryView.swift in Sources */,
-				1C1819C9252A29BF006FA6F7 /* AppLargeCell.swift in Sources */,
+				1C1819C9252A29BF006FA6F7 /* PrimaryAppCell.swift in Sources */,
 				1CD2A91B252877FE004BBD65 /* AppDelegate.swift in Sources */,
 				1C1819D2252A2FBA006FA6F7 /* AppsController.swift in Sources */,
 				1CD2A91D252877FE004BBD65 /* SceneDelegate.swift in Sources */,

@@ -112,7 +112,7 @@ extension AppsCollectionViewController {
     }
     func configureDataSource() {
         
-        let largeCellRegistration = UICollectionView.CellRegistration<AppLargeCell, AppModel> { (cell, indexPath, model) in
+        let PrimaryCellRegistration = UICollectionView.CellRegistration<PrimaryAppCell, AppModel> { (cell, indexPath, model) in
             cell.setup(appModel: model)
         }
         
@@ -120,12 +120,22 @@ extension AppsCollectionViewController {
             cell.backgroundColor = .red
         }
         
+        let secondaryCellRegistration = UICollectionView.CellRegistration<SecondaryAppCell, AppModel> { (cell, indexPath, model) in
+            let sectionKind = self.sectionKind(sectionIndex: indexPath.section)
+            cell.setStyle(sectionKind == .doubleList ? .verticallyAligned : .horizontallyAligned)
+            cell.setup(appModel: model)
+        }
+        
         dataSource = UICollectionViewDiffableDataSource<AppCollection, AppModel>(collectionView: collectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, model: AppModel) -> UICollectionViewCell? in
             let sectionKind = self.sectionKind(sectionIndex: indexPath.section)
             switch sectionKind {
             case .longList:
-                return collectionView.dequeueConfiguredReusableCell(using: largeCellRegistration, for: indexPath, item: model)
+                return collectionView.dequeueConfiguredReusableCell(using: PrimaryCellRegistration, for: indexPath, item: model)
+            case .doubleList:
+                return collectionView.dequeueConfiguredReusableCell(using: secondaryCellRegistration, for: indexPath, item: model)
+            case .trippleList:
+                return collectionView.dequeueConfiguredReusableCell(using: secondaryCellRegistration, for: indexPath, item: model)
             default:
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: model)
             }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppLargeCell: UICollectionViewCell {
+class PrimaryAppCell: UICollectionViewCell {
 
     private let commentLabel = UILabel()
     private let titleLabel = UILabel()
@@ -25,7 +25,7 @@ class AppLargeCell: UICollectionViewCell {
     }
 }
 
-extension AppLargeCell {
+extension PrimaryAppCell {
 
     // MARK: - Configure
 
