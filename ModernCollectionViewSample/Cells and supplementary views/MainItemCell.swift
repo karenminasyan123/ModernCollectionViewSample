@@ -1,5 +1,5 @@
 //
-//  AppLargeCell.swift
+//  MainItemCell.swift
 //  ModernCollectionViewSample
 //
 //  Created by Karen Minasyan on 10/4/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PrimaryAppCell: UICollectionViewCell {
+class MainItemCell: UICollectionViewCell {
 
     private let commentLabel = UILabel()
     private let titleLabel = UILabel()
@@ -25,7 +25,7 @@ class PrimaryAppCell: UICollectionViewCell {
     }
 }
 
-extension PrimaryAppCell {
+extension MainItemCell {
 
     // MARK: - Configure
 
@@ -53,10 +53,10 @@ extension PrimaryAppCell {
 
     // MARK: - Public API
 
-    func setup(appModel: AppModel) {
-        commentLabel.text = appModel.commentText
-        titleLabel.text = appModel.title
-        subTitleLabel.text = appModel.subTitle
-        imageView.image = appModel.previewImage
+    func setup(model: ItemModel) {
+        commentLabel.text = model.commentText
+        titleLabel.text = model.title
+        subTitleLabel.text = model.subTitle
+        imageView.image = model.previewImage
     }
 }

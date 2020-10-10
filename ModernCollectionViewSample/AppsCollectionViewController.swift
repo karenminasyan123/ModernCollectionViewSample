@@ -10,47 +10,54 @@ import UIKit
 class AppsCollectionViewController: UICollectionViewController {
     static let headerElementKind = "header-element-kind"
 
-    lazy var collections: [AppCollection] = {
-        let controller = AppsController()
-        return controller.generateCollections()
+    lazy var collections: [ItemCollection] = {
+        let itemCollections = ItemCollections()
+        return itemCollections.getItemCollections()
     }()
     
-    enum SectionKind: Int, CaseIterable {
-        case longList,
-             shortList,
+    enum SectionLayoutKind: Int, CaseIterable {
+        case mainList,
              doubleList,
              trippleList,
+             categoryGrid,
              categoryList
 
         var rows: Int {
             switch self {
-            case .longList: return 1
-            case .shortList: return 1
+            case .mainList: return 1
+            case .categoryGrid: return 1
             case .doubleList: return 2
             case .trippleList: return 3
             case .categoryList: return 6
             }
         }
-        
-        var groupHeight: CGFloat {
+
+        var groupFractionalHeight: CGFloat {
             switch self {
-            case .longList: return 0.3
-            case .shortList: return 0.2
-            case .doubleList: return 0.3
-            case .trippleList: return 0.3
+            case .mainList: return 0.35
+            case .categoryGrid: return 0.2
+            case .doubleList: return 0.25
+            case .trippleList: return 0.25
             case .categoryList: return 0.3
             }
         }
         
-        var groupFractianalWidth: CGFloat {
+        var groupFractionalWidth: CGFloat {
             switch self {
-            case .shortList: return 0.7
+            case .categoryGrid: return 0.7
             default: return 0.9
+            }
+        }
+        
+        var orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior {
+            switch self {
+            case .categoryList: return .none
+            default: return .groupPaging
             }
         }
     }
 
-    var dataSource: UICollectionViewDiffableDataSource<AppCollection, AppModel>! = nil
+    var dataSource: UICollectionViewDiffableDataSource<ItemCollection, ItemModel>! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,15 +65,16 @@ class AppsCollectionViewController: UICollectionViewController {
         configureHierarchy()
         configureDataSource()
     }
-    
-    func sectionKind(sectionIndex: Int) -> SectionKind {
+
+    func sectionKind(sectionIndex: Int) -> SectionLayoutKind {
         let sortIndex = collections[sectionIndex].sortIndex
         switch sortIndex {
-        case 0: return .longList
-        case 1: return .shortList
+        case 0: return .mainList
+        case 1: return .categoryGrid
         case 2: return .doubleList
         case 3: return .trippleList
-        default: return .longList
+        case 4: return .categoryList
+        default: return .mainList
         }
     }
 }
@@ -81,11 +89,12 @@ extension AppsCollectionViewController {
             // the requested number of columns fit, so this widthDimension is ignored.
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
 
-            let groupWidth = layoutEnvironment.container.contentSize.width * sectionKind.groupFractianalWidth
-            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(groupWidth), heightDimension: .fractionalHeight(sectionKind.groupHeight))
+            let groupWidth = layoutEnvironment.container.contentSize.width * sectionKind.groupFractionalWidth
+            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(groupWidth), heightDimension: .fractionalHeight(sectionKind.groupFractionalHeight))
             let nestedGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: sectionKind.rows)
+
             let section = NSCollectionLayoutSection(group: nestedGroup)
             
             let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
@@ -96,7 +105,7 @@ extension AppsCollectionViewController {
 //            let sectionSideInset = (layoutEnvironment.container.contentSize.width - groupWidth) / 2
             section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
 
-            section.orthogonalScrollingBehavior = .groupPaging
+            section.orthogonalScrollingBehavior = sectionKind.orthogonalScrollingBehavior
 //            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
             return section
         }
@@ -112,38 +121,44 @@ extension AppsCollectionViewController {
     }
     func configureDataSource() {
         
-        let PrimaryCellRegistration = UICollectionView.CellRegistration<PrimaryAppCell, AppModel> { (cell, indexPath, model) in
-            cell.setup(appModel: model)
+        let PrimaryCellRegistration = UICollectionView.CellRegistration<MainItemCell, ItemModel> { cell, indexPath, model in
+            cell.setup(model: model)
         }
         
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, AppModel> { (cell, indexPath, model) in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, ItemModel> { cell, indexPath, model in
             cell.backgroundColor = .red
         }
         
-        let secondaryCellRegistration = UICollectionView.CellRegistration<SecondaryAppCell, AppModel> { (cell, indexPath, model) in
+        let secondaryCellRegistration = UICollectionView.CellRegistration<ItemCell, ItemModel> { cell, indexPath, model in
             let sectionKind = self.sectionKind(sectionIndex: indexPath.section)
             cell.setStyle(sectionKind == .doubleList ? .verticallyAligned : .horizontallyAligned)
-            cell.setup(appModel: model)
+            cell.setup(model: model)
         }
         
-        dataSource = UICollectionViewDiffableDataSource<AppCollection, AppModel>(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, model: AppModel) -> UICollectionViewCell? in
+        let categoryListCellRegistration = UICollectionView.CellRegistration<CategoryCell, ItemModel> { cell, indexPath, model in
+            cell.setup(model: model)
+        }
+        
+        dataSource = UICollectionViewDiffableDataSource<ItemCollection, ItemModel>(collectionView: collectionView) {
+            (collectionView: UICollectionView, indexPath: IndexPath, model: ItemModel) -> UICollectionViewCell? in
             let sectionKind = self.sectionKind(sectionIndex: indexPath.section)
             switch sectionKind {
-            case .longList:
+            case .mainList:
                 return collectionView.dequeueConfiguredReusableCell(using: PrimaryCellRegistration, for: indexPath, item: model)
             case .doubleList:
                 return collectionView.dequeueConfiguredReusableCell(using: secondaryCellRegistration, for: indexPath, item: model)
             case .trippleList:
                 return collectionView.dequeueConfiguredReusableCell(using: secondaryCellRegistration, for: indexPath, item: model)
+            case .categoryList:
+                return collectionView.dequeueConfiguredReusableCell(using: categoryListCellRegistration, for: indexPath, item: model)
             default:
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: model)
             }
         }
-        
+
         let supplementaryRegistration = UICollectionView.SupplementaryRegistration<TitleSupplementaryView>(elementKind: AppsCollectionViewController.headerElementKind) { supplementaryView, string, indexPath in
-            let sectionKind = SectionKind(rawValue: indexPath.section)!
-            supplementaryView.label.text = "." + String(describing: sectionKind)
+            let sectionKind = SectionLayoutKind(rawValue: 0)!
+            supplementaryView.setTitle("." + String(describing: sectionKind))
         }
         
         dataSource.supplementaryViewProvider = { view, kind, index in
@@ -152,11 +167,11 @@ extension AppsCollectionViewController {
         }
 
         // initial data
-        var snapshot = NSDiffableDataSourceSnapshot<AppCollection, AppModel>()
+        var snapshot = NSDiffableDataSourceSnapshot<ItemCollection, ItemModel>()
 
         collections.forEach { collection in
             snapshot.appendSections([collection])
-            snapshot.appendItems(collection.apps)
+            snapshot.appendItems(collection.items)
         }
 
         dataSource.apply(snapshot, animatingDifferences: false)

@@ -8,11 +8,12 @@ Simple example of a self-sizing supplementary title view
 import UIKit
 
 class TitleSupplementaryView: UICollectionReusableView {
-    let label = UILabel()
-    static let reuseIdentifier = "title-supplementary-reuse-identifier"
+    private let titleLabel = UILabel()
+    private let seeAllButton = UIButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureHierarchy()
         configure()
     }
     required init?(coder: NSCoder) {
@@ -21,17 +22,34 @@ class TitleSupplementaryView: UICollectionReusableView {
 }
 
 extension TitleSupplementaryView {
-    func configure() {
-        addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontForContentSizeCategory = true
-        let inset = CGFloat(10)
+
+    private func configureHierarchy() {
+        addSubview(titleLabel)
+        addSubview(seeAllButton)
+        seeAllButton.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: inset),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -inset),
-            label.topAnchor.constraint(equalTo: topAnchor, constant: inset),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -inset)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            titleLabel.leftAnchor.constraint(equalTo: leftAnchor),
+            titleLabel.rightAnchor.constraint(equalTo: seeAllButton.leftAnchor, constant: -10),
+
+            seeAllButton.rightAnchor.constraint(equalTo: rightAnchor),
+            seeAllButton.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
+    }
+
+    func configure() {
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        seeAllButton.setTitle("See All", for: .normal)
+        seeAllButton.setTitleColor(.systemBlue, for: .normal)
+    }
+    
+    // Public API
+    
+    func setTitle(_ title: String) {
+        titleLabel.text = title
     }
 }
