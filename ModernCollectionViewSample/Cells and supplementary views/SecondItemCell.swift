@@ -13,7 +13,7 @@ class SecondItemCell: ItemCell {
             iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
             iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            iconImageView.trailingAnchor.constraint(equalTo: titlesStackView.leadingAnchor, constant: -10),
+            iconImageView.trailingAnchor.constraint(equalTo: titlesStackView.leadingAnchor, constant: -15),
             iconImageView.widthAnchor.constraint(equalTo: iconImageView.heightAnchor, multiplier: 1.0),
             
             titlesStackView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
@@ -22,8 +22,17 @@ class SecondItemCell: ItemCell {
             
             getButton.widthAnchor.constraint(equalToConstant: 75),
             getButton.heightAnchor.constraint(equalToConstant: 30),
-            getButton.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 10),
-            getButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+            getButton.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 15),
+            getButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            
+            purchaseLabel.leadingAnchor.constraint(equalTo: getButton.trailingAnchor, constant: 5),
+            purchaseLabel.centerYAnchor.constraint(equalTo: getButton.centerYAnchor)
         ])
+    }
+    
+    override func configureUI() {
+        super.configureUI()
+        purchaseLabel.text = "In-App\nPurchases"
+        purchaseLabel.numberOfLines = 2
     }
 }

@@ -8,8 +8,8 @@
 import UIKit
 
 struct ItemModel: Hashable {
-    let iconImage: UIImage
-    let previewImage: UIImage
+    let iconName: String
+    let previewImageName: String
 
     let title: String
     let subTitle: String
@@ -17,13 +17,13 @@ struct ItemModel: Hashable {
 
     let identifier = UUID()
 
-    init(iconImage: UIImage = UIImage(),
-         previewImage: UIImage = UIImage(),
+    init(iconName: String = "",
+         previewImageName: String = "",
          title: String = "",
          subTitle: String = "",
          commentText: String = "") {
-        self.iconImage = iconImage
-        self.previewImage = previewImage
+        self.iconName = iconName
+        self.previewImageName = previewImageName
         self.title = title
         self.subTitle = subTitle
         self.commentText = commentText

@@ -15,6 +15,8 @@ class ItemCell: UICollectionViewCell {
     var titleLabel = UILabel()
     var subTitleLabel = UILabel()
     var getButton = UIButton()
+    var purchaseLabel = UILabel()
+
     private let separatorView = SeparatorView()
 
     open var titlesStackView: UIStackView!
@@ -35,7 +37,7 @@ class ItemCell: UICollectionViewCell {
         titlesStackView = UIStackView(arrangedSubviews: [titleLabel, subTitleLabel, UIView()])
         titlesStackView.axis = .vertical
 
-        [iconImageView, titlesStackView!, getButton, separatorView].forEach {
+        [iconImageView, titlesStackView!, getButton, separatorView, purchaseLabel].forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -59,7 +61,10 @@ class ItemCell: UICollectionViewCell {
             getButton.widthAnchor.constraint(equalToConstant: 75),
             getButton.heightAnchor.constraint(equalToConstant: 30),
             getButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-            getButton.centerYAnchor.constraint(equalTo: centerYAnchor)
+            getButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            purchaseLabel.topAnchor.constraint(equalTo: getButton.bottomAnchor, constant: 5),
+            purchaseLabel.centerXAnchor.constraint(equalTo: getButton.centerXAnchor)
         ])
     }
     
@@ -71,7 +76,7 @@ class ItemCell: UICollectionViewCell {
         ])
     }
 
-    open func configureUI() {
+    func configureUI() {
         iconImageView.layer.cornerRadius = 15
         iconImageView.layer.masksToBounds = true
 
@@ -80,20 +85,25 @@ class ItemCell: UICollectionViewCell {
         getButton.setTitleColor(.systemBlue, for: .normal)
         getButton.layer.cornerRadius = 15
         getButton.layer.masksToBounds = true
-        getButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        getButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
         
         titleLabel.numberOfLines = 2
         titleLabel.font = UIFont.systemFont(ofSize: 18)
         
         subTitleLabel.numberOfLines = 1
-        subTitleLabel.font = UIFont.systemFont(ofSize: 15)
+        subTitleLabel.font = .systemFont(ofSize: 15)
         subTitleLabel.textColor = .systemGray
+        
+        purchaseLabel.font = .systemFont(ofSize: 9)
+        purchaseLabel.textColor = .systemGray
+        purchaseLabel.text = "In-App Purchases"
+        purchaseLabel.numberOfLines = 1
     }
 
     // MARK: - Public API
 
     func setup(model: ItemModel) {
-        iconImageView.image = model.iconImage
+        iconImageView.image = UIImage(named: model.iconName)
         titleLabel.text = model.title
         subTitleLabel.text = model.subTitle
     }

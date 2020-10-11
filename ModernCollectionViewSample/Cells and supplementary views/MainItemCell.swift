@@ -64,6 +64,6 @@ extension MainItemCell {
         commentLabel.text = model.commentText.uppercased()
         titleLabel.text = model.title
         subTitleLabel.text = model.subTitle
-        imageView.image = model.previewImage
+        imageView.image = UIImage(named: model.previewImageName)
     }
 }

@@ -62,7 +62,7 @@ extension ListCell {
     // MARK: - Public API
 
     func setup(model: ItemModel) {
-        iconImageView.image = model.iconImage
+        iconImageView.image = UIImage(named: model.iconName)
         titleLabel.text = model.title
     }
     
