@@ -44,11 +44,11 @@ class AppsCollectionViewController: UICollectionViewController {
         
         var groupHeight: CGFloat {
             switch self {
-            case .singleRow: return 340
+            case .singleRow: return 320
             case .doubleRow: return 250
             case .tripleRow: return 270
             case .shortRow: return 190
-            case .list: return 260
+            case .list: return 45 * 6
             }
         }
         
@@ -117,7 +117,7 @@ extension AppsCollectionViewController {
                 section.boundarySupplementaryItems = [header]
             }
 
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 18, bottom: 30, trailing: 18)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 30, trailing: 16)
             section.orthogonalScrollingBehavior = sectionKind.orthogonalScrollingBehavior
 
             return section

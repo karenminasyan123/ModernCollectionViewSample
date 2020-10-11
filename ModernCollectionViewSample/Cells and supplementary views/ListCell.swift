@@ -41,8 +41,7 @@ extension ListCell {
         NSLayoutConstraint.activate([
             iconImageView.centerYAnchor.constraint(equalTo: iconImageView.superview!.centerYAnchor),
             iconImageView.leftAnchor.constraint(equalTo: iconImageView.superview!.leftAnchor),
-            iconImageView.widthAnchor.constraint(equalToConstant: 20),
-            iconImageView.heightAnchor.constraint(equalTo: iconImageView.widthAnchor),
+            iconImageView.widthAnchor.constraint(equalToConstant: 22),
             
             titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 25),
             titleLabel.centerYAnchor.constraint(equalTo: titleLabel.superview!.centerYAnchor),
@@ -57,6 +56,8 @@ extension ListCell {
 
     private func configureUI() {
         titleLabel.font = UIFont.systemFont(ofSize: 23)
+        
+        iconImageView.contentMode = .scaleAspectFit
     }
 
     // MARK: - Public API

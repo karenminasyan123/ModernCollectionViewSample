@@ -32,7 +32,6 @@ extension MainItemCell {
     private func configureHierarchy() {
         let titlesStackView = UIStackView(arrangedSubviews: [commentLabel, titleLabel, subTitleLabel])
         titlesStackView.axis = .vertical
-        titlesStackView.spacing = 3
         
         let stackView = UIStackView(arrangedSubviews: [SeparatorView(), titlesStackView, imageView])
         stackView.frame = bounds
@@ -40,22 +39,26 @@ extension MainItemCell {
         stackView.axis = .vertical
         stackView.spacing = 12
         addSubview(stackView)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.heightAnchor.constraint(equalToConstant: 220).isActive = true
     }
 
     private func configureUI() {
         commentLabel.numberOfLines = 1
         commentLabel.textColor = .systemBlue
-        commentLabel.font = UIFont.boldSystemFont(ofSize: 13)
+        commentLabel.font = UIFont.boldSystemFont(ofSize: 12)
 
         titleLabel.numberOfLines = 1
-        titleLabel.font = UIFont.systemFont(ofSize: 25)
+        titleLabel.font = UIFont.systemFont(ofSize: 22)
 
         subTitleLabel.numberOfLines = 1
         subTitleLabel.textColor = .systemGray
-        subTitleLabel.font = UIFont.systemFont(ofSize: 25)
+        subTitleLabel.font = UIFont.systemFont(ofSize: 22)
         
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .redraw
     }
 
     // MARK: - Public API

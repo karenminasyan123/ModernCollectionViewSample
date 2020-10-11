@@ -45,7 +45,7 @@ class ItemCell: UICollectionViewCell {
         configureConstraints()
         addSeparatorView()
     }
-    
+
     func configureConstraints() {
         NSLayoutConstraint.activate([
             iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
@@ -67,7 +67,7 @@ class ItemCell: UICollectionViewCell {
             purchaseLabel.centerXAnchor.constraint(equalTo: getButton.centerXAnchor)
         ])
     }
-    
+
     private func addSeparatorView() {
         NSLayoutConstraint.activate([
             separatorView.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 10),
