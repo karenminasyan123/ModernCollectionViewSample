@@ -11,7 +11,7 @@ class SeparatorView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemGray5
+        backgroundColor = .systemGray6
         
         heightAnchor.constraint(equalToConstant: 1).isActive = true
     }

@@ -30,22 +30,29 @@ extension MainItemCell {
     // MARK: - Configure
 
     private func configureHierarchy() {
-        let stackView = UIStackView(arrangedSubviews: [commentLabel, titleLabel, subTitleLabel, imageView])
+        let titlesStackView = UIStackView(arrangedSubviews: [commentLabel, titleLabel, subTitleLabel])
+        titlesStackView.axis = .vertical
+        titlesStackView.spacing = 3
+        
+        let stackView = UIStackView(arrangedSubviews: [SeparatorView(), titlesStackView, imageView])
         stackView.frame = bounds
         stackView.distribution = .fillProportionally
         stackView.axis = .vertical
-        stackView.spacing = 4
+        stackView.spacing = 12
         addSubview(stackView)
     }
-    
+
     private func configureUI() {
         commentLabel.numberOfLines = 1
         commentLabel.textColor = .systemBlue
+        commentLabel.font = UIFont.boldSystemFont(ofSize: 13)
 
         titleLabel.numberOfLines = 1
+        titleLabel.font = UIFont.systemFont(ofSize: 25)
 
         subTitleLabel.numberOfLines = 1
         subTitleLabel.textColor = .systemGray
+        subTitleLabel.font = UIFont.systemFont(ofSize: 25)
         
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
@@ -54,7 +61,7 @@ extension MainItemCell {
     // MARK: - Public API
 
     func setup(model: ItemModel) {
-        commentLabel.text = model.commentText
+        commentLabel.text = model.commentText.uppercased()
         titleLabel.text = model.title
         subTitleLabel.text = model.subTitle
         imageView.image = model.previewImage
