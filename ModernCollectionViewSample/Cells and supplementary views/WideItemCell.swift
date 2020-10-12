@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondItemCell: ItemCell {
+class WideItemCell: ItemCell {
     override func configureConstraints() {
         NSLayoutConstraint.activate([
             iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),

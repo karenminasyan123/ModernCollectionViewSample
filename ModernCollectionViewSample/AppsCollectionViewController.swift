@@ -145,7 +145,7 @@ extension AppsCollectionViewController {
             cell.setSeparatorView(hidden: indexPath.row % 3 == 0)
         }
 
-        let secondItemCellRegistration = UICollectionView.CellRegistration<SecondItemCell, ItemModel> { cell, indexPath, model in
+        let secondItemCellRegistration = UICollectionView.CellRegistration<WideItemCell, ItemModel> { cell, indexPath, model in
             cell.setup(model: model)
             cell.setSeparatorView(hidden: indexPath.row % 2 == 0)
         }
