@@ -77,7 +77,7 @@ class ItemCollections {
                                       subTitle: "Movie Maker & Video Editor"),
                         ],
                         sectionKindId: 2),
-         ItemCollection(title: "Popular Apps to Try",
+         ItemCollection(title: "Top Free",
                         items: [
                             ItemModel(iconName: "tiktok",
                                       title: "TikTok - Trends Start Here",
@@ -108,7 +108,7 @@ class ItemCollections {
                                       subTitle: "Movie Maker & Video Editor"),
                         ],
                         sectionKindId: 2),
-         ItemCollection(title: "Popular Apps to Try",
+         ItemCollection(title: "Apps We love Right Now",
                         items: [
                             ItemModel(iconName: "picsartcolor",
                                       title: "PicsArt Color Paint",
@@ -142,7 +142,7 @@ class ItemCollections {
                                       subTitle: "Talk. Chat. Collaborate.")
                         ],
                         sectionKindId: 1),
-         ItemCollection(title: "Popular Apps to Try",
+         ItemCollection(title: "Apps for professionals",
                         items: [
                             ItemModel(iconName: "enrepreneurs",
                                       title: "Apps for enrepreneurs"),

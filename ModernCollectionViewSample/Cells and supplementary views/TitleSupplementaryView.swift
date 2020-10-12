@@ -31,12 +31,14 @@ extension TitleSupplementaryView {
         }
 
         NSLayoutConstraint.activate([
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             titleLabel.trailingAnchor.constraint(equalTo: seeAllButton.leadingAnchor, constant: -10),
 
             seeAllButton.trailingAnchor.constraint(equalTo: trailingAnchor),
-            seeAllButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            seeAllButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            seeAllButton.widthAnchor.constraint(equalToConstant: 60),
             
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             separatorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
@@ -46,8 +48,8 @@ extension TitleSupplementaryView {
 
     func configure() {
         titleLabel.adjustsFontForContentSizeCategory = true
-//        titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
         titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        titleLabel.numberOfLines = 2
         
         seeAllButton.setTitle("See All", for: .normal)
         seeAllButton.setTitleColor(.systemBlue, for: .normal)

@@ -177,7 +177,7 @@ extension AppsCollectionViewController {
         }
 
         let supplementaryRegistration = UICollectionView.SupplementaryRegistration<TitleSupplementaryView>(elementKind: AppsCollectionViewController.headerElementKind) { supplementaryView, elentKind, indexPath in
-            let title = self.collections[indexPath.row].title
+            let title = self.collections[indexPath.section].title
             supplementaryView.setTitle(title)
         }
 
