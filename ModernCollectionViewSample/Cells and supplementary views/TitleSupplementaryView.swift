@@ -39,7 +39,7 @@ extension TitleSupplementaryView {
             seeAllButton.trailingAnchor.constraint(equalTo: trailingAnchor),
             seeAllButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             seeAllButton.widthAnchor.constraint(equalToConstant: 60),
-            
+
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             separatorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             separatorView.topAnchor.constraint(equalTo: topAnchor)
@@ -48,7 +48,7 @@ extension TitleSupplementaryView {
 
     func configure() {
         titleLabel.adjustsFontForContentSizeCategory = true
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.numberOfLines = 2
         
         seeAllButton.setTitle("See All", for: .normal)
