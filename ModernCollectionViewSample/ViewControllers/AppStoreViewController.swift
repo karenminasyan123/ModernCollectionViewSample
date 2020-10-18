@@ -11,8 +11,8 @@ class AppStoreViewController: UIViewController {
     static let headerElementKind = "header-element-kind"
 
     lazy var collections: [ItemCollection] = {
-        let itemCollections = ItemCollections()
-        return itemCollections.getItemCollections()
+        let database = Database()
+        return database.getItemCollections()
     }()
 
     enum SectionLayoutKind: Int, CaseIterable {

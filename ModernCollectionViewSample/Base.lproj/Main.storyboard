@@ -4,14 +4,12 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Menu View Controller-->
         <scene sceneID="Bf1-3e-Ngp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zip-9E-2FS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="Kk9-0q-nNC" customClass="MenuViewController" customModule="ModernCollectionViewSample" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="VBZ-gX-nJ6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -23,16 +21,7 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="66e-np-m7V">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JLH-3x-5W7">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="Kk9-0q-nNC" id="rUE-kP-joN"/>
                             <outlet property="delegate" destination="Kk9-0q-nNC" id="o6f-2Z-7El"/>
@@ -40,13 +29,13 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="eCU-2F-46N"/>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zip-9E-2FS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1091" y="44"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Luk-a1-5BM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="68G-Ia-w5s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Jr-d0-5hD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OFm-nW-Jhr">
@@ -58,6 +47,7 @@
                         <segue destination="Kk9-0q-nNC" kind="relationship" relationship="rootViewController" id="lgg-i0-saA"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="68G-Ia-w5s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="402.89855072463769" y="43.526785714285715"/>
         </scene>

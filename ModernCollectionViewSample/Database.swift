@@ -19,7 +19,11 @@ struct ItemCollection: Hashable {
     }
 }
 
-class ItemCollections {
+class Database {
+
+    func getImageNames() -> [String] {
+        (1...101).map { "image\($0)" }
+    }
 
     func getItemCollections() -> [ItemCollection] {
         [ItemCollection(title: "Popular Apps to Try",

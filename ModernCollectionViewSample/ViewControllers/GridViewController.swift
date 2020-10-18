@@ -21,6 +21,10 @@ class GridViewController: UIViewController {
         configureCollectionView()
         configureDataSource()
     }
+
+    func columnsCount(for width: CGFloat) -> Int {
+        width > 600 ? 3 : 2
+    }
 }
 
 extension GridViewController {
@@ -32,40 +36,39 @@ extension GridViewController {
         collectionView.delegate = self
         view.addSubview(collectionView)
     }
-    
+
     func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout.init(sectionProvider: { index, environment in
+            let columnsCount = self.columnsCount(for: environment.container.effectiveContentSize.width)
+            let fractionalWidth = 1 / CGFloat(columnsCount)
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets.init(top: 5, leading: 5, bottom: 5, trailing: 5)
+            item.contentInsets = NSDirectionalEdgeInsets.init(top: 10, leading: 10, bottom: 10, trailing: 10)
 
-            let height = environment.container.contentSize.width / 3
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
-            group.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 5, bottom: 0, trailing: 5)
-            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(fractionalWidth))
+
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: columnsCount)
+
             let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)
 
             return section
         })
     }
-    
+
     func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, String> {cell, title, IndexPath in
-            cell.backgroundColor = .systemPink
-            cell.layer.borderColor = UIColor.systemBlue.cgColor
-            cell.layer.borderWidth = 1
+        let cellRegistration = UICollectionView.CellRegistration<ImageCell, String> { cell, indexPath, imageName in
+            cell.setImage(name: imageName)
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Section, String>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, title) in
-            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: title)
+        dataSource = UICollectionViewDiffableDataSource<Section, String>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, imageName) in
+            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: imageName)
         })
-        
+
+        let images = Database().getImageNames()
         var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
         snapshot.appendSections([.main])
-        snapshot.appendItems((0 ... 99).map { String($0) } )
-        
+        snapshot.appendItems(images)
+
         dataSource.apply(snapshot)
     }
 }

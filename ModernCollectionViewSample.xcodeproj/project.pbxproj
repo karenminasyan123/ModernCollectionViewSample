@@ -10,11 +10,13 @@
 		1C1819BB2528D26A006FA6F7 /* TitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819BA2528D26A006FA6F7 /* TitleSupplementaryView.swift */; };
 		1C1819C9252A29BF006FA6F7 /* MainItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819C8252A29BF006FA6F7 /* MainItemCell.swift */; };
 		1C1819CD252A2D5C006FA6F7 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819CC252A2D5C006FA6F7 /* ItemModel.swift */; };
-		1C1819D2252A2FBA006FA6F7 /* DataCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819D1252A2FBA006FA6F7 /* DataCollections.swift */; };
+		1C1819D2252A2FBA006FA6F7 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819D1252A2FBA006FA6F7 /* Database.swift */; };
 		1C4D27A7253B1E9B007FE181 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D27A6253B1E9B007FE181 /* MenuViewController.swift */; };
 		1C4D27B5253B4864007FE181 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D27B4253B4864007FE181 /* GridViewController.swift */; };
 		1C4D2888253C3772007FE181 /* SectionHeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */; };
 		1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */; };
+		1C61FEB1253CD7020026A4CE /* ScrollBehaviorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */; };
+		1C61FEB8253CDC020026A4CE /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61FEB7253CDC020026A4CE /* ImageCell.swift */; };
 		1CB69C4E2531CB0E00C5EEB6 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69C4D2531CB0E00C5EEB6 /* ListCell.swift */; };
 		1CB69C512531CDEC00C5EEB6 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69C502531CDEC00C5EEB6 /* SeparatorView.swift */; };
 		1CB69C622531FBCA00C5EEB6 /* CategoryGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69C612531FBCA00C5EEB6 /* CategoryGridCell.swift */; };
@@ -33,11 +35,13 @@
 		1C1819BA2528D26A006FA6F7 /* TitleSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleSupplementaryView.swift; sourceTree = "<group>"; };
 		1C1819C8252A29BF006FA6F7 /* MainItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItemCell.swift; sourceTree = "<group>"; };
 		1C1819CC252A2D5C006FA6F7 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
-		1C1819D1252A2FBA006FA6F7 /* DataCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollections.swift; sourceTree = "<group>"; };
+		1C1819D1252A2FBA006FA6F7 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		1C4D27A6253B1E9B007FE181 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1C4D27B4253B4864007FE181 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeadersViewController.swift; sourceTree = "<group>"; };
 		1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupsViewController.swift; sourceTree = "<group>"; };
+		1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBehaviorsViewController.swift; sourceTree = "<group>"; };
+		1C61FEB7253CDC020026A4CE /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		1CB69C4D2531CB0E00C5EEB6 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		1CB69C502531CDEC00C5EEB6 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		1CB69C612531FBCA00C5EEB6 /* CategoryGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryGridCell.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 				1CB69C4D2531CB0E00C5EEB6 /* ListCell.swift */,
 				1CB69C612531FBCA00C5EEB6 /* CategoryGridCell.swift */,
 				1C1819BA2528D26A006FA6F7 /* TitleSupplementaryView.swift */,
+				1C61FEB7253CDC020026A4CE /* ImageCell.swift */,
 			);
 			path = "Cells and supplementary views";
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 				1CD2A91E252877FE004BBD65 /* AppStoreViewController.swift */,
 				1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */,
 				1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */,
+				1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -135,7 +141,7 @@
 			children = (
 				1CD2A91A252877FE004BBD65 /* AppDelegate.swift */,
 				1CD2A91C252877FE004BBD65 /* SceneDelegate.swift */,
-				1C1819D1252A2FBA006FA6F7 /* DataCollections.swift */,
+				1C1819D1252A2FBA006FA6F7 /* Database.swift */,
 				1C4D27B8253B496E007FE181 /* ViewControllers */,
 				1C1819BD2528D26E006FA6F7 /* Cells and supplementary views */,
 				1CB69C592531F6F000C5EEB6 /* Custom Views */,
@@ -222,8 +228,10 @@
 				1CD2A91F252877FE004BBD65 /* AppStoreViewController.swift in Sources */,
 				1C4D2888253C3772007FE181 /* SectionHeadersViewController.swift in Sources */,
 				1C1819CD252A2D5C006FA6F7 /* ItemModel.swift in Sources */,
+				1C61FEB8253CDC020026A4CE /* ImageCell.swift in Sources */,
 				1CB69C512531CDEC00C5EEB6 /* SeparatorView.swift in Sources */,
 				1CDEA5BA252D095700D0B67C /* ItemCell.swift in Sources */,
+				1C61FEB1253CD7020026A4CE /* ScrollBehaviorsViewController.swift in Sources */,
 				1CB69D322532054300C5EEB6 /* UIView+AddSubview.swift in Sources */,
 				1C1819BB2528D26A006FA6F7 /* TitleSupplementaryView.swift in Sources */,
 				1C1819C9252A29BF006FA6F7 /* MainItemCell.swift in Sources */,
@@ -233,7 +241,7 @@
 				1CB69C622531FBCA00C5EEB6 /* CategoryGridCell.swift in Sources */,
 				1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */,
 				1C4D27B5253B4864007FE181 /* GridViewController.swift in Sources */,
-				1C1819D2252A2FBA006FA6F7 /* DataCollections.swift in Sources */,
+				1C1819D2252A2FBA006FA6F7 /* Database.swift in Sources */,
 				1C4D27A7253B1E9B007FE181 /* MenuViewController.swift in Sources */,
 				1CD2A91D252877FE004BBD65 /* SceneDelegate.swift in Sources */,
 			);
