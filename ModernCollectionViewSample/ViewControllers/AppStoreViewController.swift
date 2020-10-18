@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppsCollectionViewController: UICollectionViewController {
+class AppStoreViewController: UIViewController {
     static let headerElementKind = "header-element-kind"
 
     lazy var collections: [ItemCollection] = {
@@ -72,11 +72,12 @@ class AppsCollectionViewController: UICollectionViewController {
     }
 
     var dataSource: UICollectionViewDiffableDataSource<ItemCollection, ItemModel>! = nil
+    var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Apps"
-        configureHierarchy()
+        configureCollectionView()
         configureDataSource()
     }
 
@@ -93,7 +94,7 @@ class AppsCollectionViewController: UICollectionViewController {
     }
 }
 
-extension AppsCollectionViewController {
+extension AppStoreViewController {
 
     func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
@@ -113,7 +114,7 @@ extension AppsCollectionViewController {
 
             if sectionKind.hasHeader {
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(40))
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: AppsCollectionViewController.headerElementKind, alignment: .top)
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: AppStoreViewController.headerElementKind, alignment: .top)
                 section.boundarySupplementaryItems = [header]
             }
 
@@ -125,12 +126,13 @@ extension AppsCollectionViewController {
     }
 }
 
-extension AppsCollectionViewController {
-    func configureHierarchy() {
+extension AppStoreViewController {
+    func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemBackground
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
         view.addSubview(collectionView)
     }
 
@@ -176,9 +178,10 @@ extension AppsCollectionViewController {
             }
         }
 
-        let supplementaryRegistration = UICollectionView.SupplementaryRegistration<TitleSupplementaryView>(elementKind: AppsCollectionViewController.headerElementKind) { supplementaryView, elentKind, indexPath in
+        let supplementaryRegistration = UICollectionView.SupplementaryRegistration<TitleSupplementaryView>(elementKind: AppStoreViewController.headerElementKind) { supplementaryView, elentKind, indexPath in
             let title = self.collections[indexPath.section].title
             supplementaryView.setTitle(title)
+            supplementaryView.setActionButtonTitle("See All")
         }
 
         dataSource.supplementaryViewProvider = { view, kind, index in
@@ -198,8 +201,8 @@ extension AppsCollectionViewController {
     }
 }
 
-extension AppsCollectionViewController {
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+extension AppStoreViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }

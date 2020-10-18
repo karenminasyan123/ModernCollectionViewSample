@@ -11,6 +11,10 @@
 		1C1819C9252A29BF006FA6F7 /* MainItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819C8252A29BF006FA6F7 /* MainItemCell.swift */; };
 		1C1819CD252A2D5C006FA6F7 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819CC252A2D5C006FA6F7 /* ItemModel.swift */; };
 		1C1819D2252A2FBA006FA6F7 /* DataCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819D1252A2FBA006FA6F7 /* DataCollections.swift */; };
+		1C4D27A7253B1E9B007FE181 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D27A6253B1E9B007FE181 /* MenuViewController.swift */; };
+		1C4D27B5253B4864007FE181 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D27B4253B4864007FE181 /* GridViewController.swift */; };
+		1C4D2888253C3772007FE181 /* SectionHeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */; };
+		1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */; };
 		1CB69C4E2531CB0E00C5EEB6 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69C4D2531CB0E00C5EEB6 /* ListCell.swift */; };
 		1CB69C512531CDEC00C5EEB6 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69C502531CDEC00C5EEB6 /* SeparatorView.swift */; };
 		1CB69C622531FBCA00C5EEB6 /* CategoryGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69C612531FBCA00C5EEB6 /* CategoryGridCell.swift */; };
@@ -18,7 +22,7 @@
 		1CB69D3725323F0100C5EEB6 /* WideItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69D3625323F0100C5EEB6 /* WideItemCell.swift */; };
 		1CD2A91B252877FE004BBD65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2A91A252877FE004BBD65 /* AppDelegate.swift */; };
 		1CD2A91D252877FE004BBD65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2A91C252877FE004BBD65 /* SceneDelegate.swift */; };
-		1CD2A91F252877FE004BBD65 /* AppsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2A91E252877FE004BBD65 /* AppsCollectionViewController.swift */; };
+		1CD2A91F252877FE004BBD65 /* AppStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2A91E252877FE004BBD65 /* AppStoreViewController.swift */; };
 		1CD2A922252877FE004BBD65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD2A920252877FE004BBD65 /* Main.storyboard */; };
 		1CD2A92425287801004BBD65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD2A92325287801004BBD65 /* Assets.xcassets */; };
 		1CD2A92725287801004BBD65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD2A92525287801004BBD65 /* LaunchScreen.storyboard */; };
@@ -30,6 +34,10 @@
 		1C1819C8252A29BF006FA6F7 /* MainItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItemCell.swift; sourceTree = "<group>"; };
 		1C1819CC252A2D5C006FA6F7 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		1C1819D1252A2FBA006FA6F7 /* DataCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollections.swift; sourceTree = "<group>"; };
+		1C4D27A6253B1E9B007FE181 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		1C4D27B4253B4864007FE181 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeadersViewController.swift; sourceTree = "<group>"; };
+		1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupsViewController.swift; sourceTree = "<group>"; };
 		1CB69C4D2531CB0E00C5EEB6 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		1CB69C502531CDEC00C5EEB6 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		1CB69C612531FBCA00C5EEB6 /* CategoryGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryGridCell.swift; sourceTree = "<group>"; };
@@ -38,7 +46,7 @@
 		1CD2A917252877FE004BBD65 /* ModernCollectionViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernCollectionViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD2A91A252877FE004BBD65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CD2A91C252877FE004BBD65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1CD2A91E252877FE004BBD65 /* AppsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCollectionViewController.swift; sourceTree = "<group>"; };
+		1CD2A91E252877FE004BBD65 /* AppStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreViewController.swift; sourceTree = "<group>"; };
 		1CD2A921252877FE004BBD65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CD2A92325287801004BBD65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CD2A92625287801004BBD65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +86,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1C4D27B8253B496E007FE181 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C4D27A6253B1E9B007FE181 /* MenuViewController.swift */,
+				1C4D27B4253B4864007FE181 /* GridViewController.swift */,
+				1CD2A91E252877FE004BBD65 /* AppStoreViewController.swift */,
+				1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */,
+				1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		1CB69C592531F6F000C5EEB6 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,8 +135,8 @@
 			children = (
 				1CD2A91A252877FE004BBD65 /* AppDelegate.swift */,
 				1CD2A91C252877FE004BBD65 /* SceneDelegate.swift */,
-				1CD2A91E252877FE004BBD65 /* AppsCollectionViewController.swift */,
 				1C1819D1252A2FBA006FA6F7 /* DataCollections.swift */,
+				1C4D27B8253B496E007FE181 /* ViewControllers */,
 				1C1819BD2528D26E006FA6F7 /* Cells and supplementary views */,
 				1CB69C592531F6F000C5EEB6 /* Custom Views */,
 				1C1819CB252A2D4C006FA6F7 /* Model */,
@@ -199,7 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CD2A91F252877FE004BBD65 /* AppsCollectionViewController.swift in Sources */,
+				1CD2A91F252877FE004BBD65 /* AppStoreViewController.swift in Sources */,
+				1C4D2888253C3772007FE181 /* SectionHeadersViewController.swift in Sources */,
 				1C1819CD252A2D5C006FA6F7 /* ItemModel.swift in Sources */,
 				1CB69C512531CDEC00C5EEB6 /* SeparatorView.swift in Sources */,
 				1CDEA5BA252D095700D0B67C /* ItemCell.swift in Sources */,
@@ -210,7 +231,10 @@
 				1CB69D3725323F0100C5EEB6 /* WideItemCell.swift in Sources */,
 				1CD2A91B252877FE004BBD65 /* AppDelegate.swift in Sources */,
 				1CB69C622531FBCA00C5EEB6 /* CategoryGridCell.swift in Sources */,
+				1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */,
+				1C4D27B5253B4864007FE181 /* GridViewController.swift in Sources */,
 				1C1819D2252A2FBA006FA6F7 /* DataCollections.swift in Sources */,
+				1C4D27A7253B1E9B007FE181 /* MenuViewController.swift in Sources */,
 				1CD2A91D252877FE004BBD65 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +385,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZPAU595F7P;
 				INFOPLIST_FILE = ModernCollectionViewSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,6 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZPAU595F7P;
 				INFOPLIST_FILE = ModernCollectionViewSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
