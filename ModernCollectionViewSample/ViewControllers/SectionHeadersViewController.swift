@@ -59,7 +59,6 @@ extension SectionHeadersViewController {
         let headerRegistration = UICollectionView.SupplementaryRegistration<TitleSupplementaryView>(elementKind: headerKind, handler: { view, elementKind, indexPath in
             view.setTitle("Section: \(indexPath.section)")
             view.setActionButtonHidden(true)
-            view.backgroundColor = .white
         })
 
         dataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, title) in

@@ -47,11 +47,12 @@ extension TitleSupplementaryView {
     }
 
     func configure() {
+        backgroundColor = .systemBackground
         titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.numberOfLines = 2
-        
-        
+        titleLabel.textColor = .label
+
         actionButton.setTitleColor(.systemBlue, for: .normal)
         actionButton.titleLabel?.font = .systemFont(ofSize: 18)
     }
