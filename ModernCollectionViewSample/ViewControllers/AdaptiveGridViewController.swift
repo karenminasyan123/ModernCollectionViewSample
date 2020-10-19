@@ -1,13 +1,13 @@
 //
-//  GridViewController.swift
+//  AdaptiveGridViewController.swift
 //  ModernCollectionViewSample
 //
-//  Created by Karen Minasyan on 10/17/20.
+//  Created by Karen Minasyan on 10/19/20.
 //
 
 import UIKit
 
-class GridViewController: UIViewController {
+class AdaptiveGridViewController: UIViewController {
 
     enum Section {
         case main
@@ -21,9 +21,13 @@ class GridViewController: UIViewController {
         configureCollectionView()
         configureDataSource()
     }
+
+    func columnsCount(for width: CGFloat) -> Int {
+        width > 600 ? 3 : 2
+    }
 }
 
-extension GridViewController {
+extension AdaptiveGridViewController {
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -35,13 +39,15 @@ extension GridViewController {
 
     func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout.init(sectionProvider: { index, environment in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
+            let columnsCount = self.columnsCount(for: environment.container.effectiveContentSize.width)
+            let fractionalWidth = 1 / CGFloat(columnsCount)
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets.init(top: 10, leading: 10, bottom: 10, trailing: 10)
 
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.5))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(fractionalWidth))
 
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: columnsCount)
 
             let section = NSCollectionLayoutSection(group: group)
 
@@ -67,7 +73,7 @@ extension GridViewController {
     }
 }
 
-extension GridViewController: UICollectionViewDelegate {
+extension AdaptiveGridViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
     }

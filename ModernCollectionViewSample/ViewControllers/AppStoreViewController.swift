@@ -32,16 +32,6 @@ class AppStoreViewController: UIViewController {
             }
         }
 
-        var groupFractionalHeight: CGFloat {
-            switch self {
-            case .singleRow: return 0.35
-            case .doubleRow: return 0.25
-            case .tripleRow: return 0.25
-            case .shortRow: return 0.2
-            case .list: return 0.3
-            }
-        }
-        
         var groupHeight: CGFloat {
             switch self {
             case .singleRow: return 320
@@ -101,7 +91,7 @@ extension AppStoreViewController {
             guard let self = self else { return nil }
             let sectionKind = self.sectionKind(sectionIndex: sectionIndex)
             // The group auto-calculates the actual item width to make
-            // the requested number of columns fit, so this widthDimension is ignored.
+            // the requested number of columns fit, so this heightDimension is ignored.
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)

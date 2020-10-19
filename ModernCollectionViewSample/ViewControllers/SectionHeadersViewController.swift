@@ -42,7 +42,7 @@ extension SectionHeadersViewController {
             header.pinToVisibleBounds = true
 
             let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10)
             section.boundarySupplementaryItems = [header]
 
             return section
@@ -50,14 +50,14 @@ extension SectionHeadersViewController {
     }
 
     func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, Int> {cell, title, IndexPath in
-            cell.backgroundColor = .systemPink
-            cell.layer.borderColor = UIColor.systemBlue.cgColor
-            cell.layer.borderWidth = 1
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Int> {cell, indexPath, number in
+            var configuration = cell.defaultContentConfiguration()
+            configuration.text = "Row \(number)"
+            cell.contentConfiguration = configuration
         }
 
         let headerRegistration = UICollectionView.SupplementaryRegistration<TitleSupplementaryView>(elementKind: headerKind, handler: { view, elementKind, indexPath in
-            view.setTitle("Section: \(indexPath.section)")
+            view.setTitle("Section \(indexPath.section)")
             view.setActionButtonHidden(true)
         })
 

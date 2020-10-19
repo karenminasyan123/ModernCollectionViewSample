@@ -17,6 +17,7 @@
 		1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */; };
 		1C61FEB1253CD7020026A4CE /* ScrollBehaviorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */; };
 		1C61FEB8253CDC020026A4CE /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61FEB7253CDC020026A4CE /* ImageCell.swift */; };
+		1C914535253E06BC0040C5D6 /* AdaptiveGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C914534253E06BC0040C5D6 /* AdaptiveGridViewController.swift */; };
 		1CB69C4E2531CB0E00C5EEB6 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69C4D2531CB0E00C5EEB6 /* ListCell.swift */; };
 		1CB69C512531CDEC00C5EEB6 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69C502531CDEC00C5EEB6 /* SeparatorView.swift */; };
 		1CB69C622531FBCA00C5EEB6 /* CategoryGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69C612531FBCA00C5EEB6 /* CategoryGridCell.swift */; };
@@ -42,6 +43,7 @@
 		1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupsViewController.swift; sourceTree = "<group>"; };
 		1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBehaviorsViewController.swift; sourceTree = "<group>"; };
 		1C61FEB7253CDC020026A4CE /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		1C914534253E06BC0040C5D6 /* AdaptiveGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveGridViewController.swift; sourceTree = "<group>"; };
 		1CB69C4D2531CB0E00C5EEB6 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		1CB69C502531CDEC00C5EEB6 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		1CB69C612531FBCA00C5EEB6 /* CategoryGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryGridCell.swift; sourceTree = "<group>"; };
@@ -96,10 +98,11 @@
 			children = (
 				1C4D27A6253B1E9B007FE181 /* MenuViewController.swift */,
 				1C4D27B4253B4864007FE181 /* GridViewController.swift */,
-				1CD2A91E252877FE004BBD65 /* AppStoreViewController.swift */,
+				1C914534253E06BC0040C5D6 /* AdaptiveGridViewController.swift */,
 				1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */,
 				1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */,
 				1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */,
+				1CD2A91E252877FE004BBD65 /* AppStoreViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				1CB69C622531FBCA00C5EEB6 /* CategoryGridCell.swift in Sources */,
 				1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */,
 				1C4D27B5253B4864007FE181 /* GridViewController.swift in Sources */,
+				1C914535253E06BC0040C5D6 /* AdaptiveGridViewController.swift in Sources */,
 				1C1819D2252A2FBA006FA6F7 /* Database.swift in Sources */,
 				1C4D27A7253B1E9B007FE181 /* MenuViewController.swift in Sources */,
 				1CD2A91D252877FE004BBD65 /* SceneDelegate.swift in Sources */,
