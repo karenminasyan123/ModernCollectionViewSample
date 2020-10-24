@@ -28,7 +28,7 @@ class AppStoreViewController: UIViewController {
             case .doubleRow: return 2
             case .tripleRow: return 3
             case .shortRow: return 1
-            case .list: return 6
+            case .list: return 1
             }
         }
 
@@ -38,7 +38,7 @@ class AppStoreViewController: UIViewController {
             case .doubleRow: return 250
             case .tripleRow: return 270
             case .shortRow: return 190
-            case .list: return 45 * 6
+            case .list: return 45
             }
         }
         
