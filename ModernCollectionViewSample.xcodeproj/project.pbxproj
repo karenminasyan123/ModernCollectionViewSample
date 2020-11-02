@@ -17,6 +17,7 @@
 		1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */; };
 		1C61FEB1253CD7020026A4CE /* ScrollBehaviorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */; };
 		1C61FEB8253CDC020026A4CE /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61FEB7253CDC020026A4CE /* ImageCell.swift */; };
+		1C67F03025504170005E79AF /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C67F02F25504170005E79AF /* ListViewController.swift */; };
 		1C89CC4E254DD01400A26590 /* PinterestLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C89CC4D254DD01400A26590 /* PinterestLayoutViewController.swift */; };
 		1C89CC52254EC06600A26590 /* RamdomImageDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C89CC51254EC06600A26590 /* RamdomImageDatabase.swift */; };
 		1C914535253E06BC0040C5D6 /* AdaptiveGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C914534253E06BC0040C5D6 /* AdaptiveGridViewController.swift */; };
@@ -45,6 +46,7 @@
 		1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupsViewController.swift; sourceTree = "<group>"; };
 		1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBehaviorsViewController.swift; sourceTree = "<group>"; };
 		1C61FEB7253CDC020026A4CE /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		1C67F02F25504170005E79AF /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		1C89CC4D254DD01400A26590 /* PinterestLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayoutViewController.swift; sourceTree = "<group>"; };
 		1C89CC51254EC06600A26590 /* RamdomImageDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamdomImageDatabase.swift; sourceTree = "<group>"; };
 		1C914534253E06BC0040C5D6 /* AdaptiveGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveGridViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				1C4D27A6253B1E9B007FE181 /* MenuViewController.swift */,
+				1C67F02F25504170005E79AF /* ListViewController.swift */,
 				1C4D27B4253B4864007FE181 /* GridViewController.swift */,
 				1C914534253E06BC0040C5D6 /* AdaptiveGridViewController.swift */,
 				1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */,
@@ -249,6 +252,7 @@
 				1CB69D3725323F0100C5EEB6 /* WideItemCell.swift in Sources */,
 				1CD2A91B252877FE004BBD65 /* AppDelegate.swift in Sources */,
 				1CB69C622531FBCA00C5EEB6 /* CategoryGridCell.swift in Sources */,
+				1C67F03025504170005E79AF /* ListViewController.swift in Sources */,
 				1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */,
 				1C4D27B5253B4864007FE181 /* GridViewController.swift in Sources */,
 				1C89CC4E254DD01400A26590 /* PinterestLayoutViewController.swift in Sources */,

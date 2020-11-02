@@ -29,7 +29,8 @@ class MenuViewController: UICollectionViewController {
         }
 
         static func getMenuItems() -> [MenuItem] {
-            [MenuItem(title: "Grid Sample", viewControllerType: GridViewController.self),
+            [MenuItem(title: "List Sample", viewControllerType: ListViewController.self),
+             MenuItem(title: "Grid Sample", viewControllerType: GridViewController.self),
              MenuItem(title: "Adaptive Grid Sample", viewControllerType: AdaptiveGridViewController.self),
              MenuItem(title: "Section Headers Sample", viewControllerType: SectionHeadersViewController.self),
              MenuItem(title: "Nested Groups Sample", viewControllerType: NestedGroupsViewController.self),
