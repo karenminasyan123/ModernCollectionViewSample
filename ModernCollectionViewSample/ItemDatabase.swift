@@ -19,11 +19,7 @@ struct ItemCollection: Hashable {
     }
 }
 
-class Database {
-
-    func getImageNames() -> [String] {
-        (1...101).map { "image\($0)" }
-    }
+class ItemDatabase {
 
     func getItemCollections() -> [ItemCollection] {
         [ItemCollection(title: "Popular Apps to Try",
@@ -92,9 +88,9 @@ class Database {
                             ItemModel(iconName: "bazart",
                                       title: "Bazaart Photo Editor & Design",
                                       subTitle: "Collage, Edit, Cut, Paste Pics"),
-                            ItemModel(iconName: "instagram",
-                                      title: "Instagram",
-                                      subTitle: "#2 in Photo & Video"),
+                            ItemModel(iconName: "wikipedia",
+                                      title: "Wikipedia",
+                                      subTitle: "The Free Encyclopedia"),
                             ItemModel(iconName: "messenger",
                                       title: "VivaVideo - Video Maker and Photo Editor",
                                       subTitle: "Movie Maker & Video Editor"),

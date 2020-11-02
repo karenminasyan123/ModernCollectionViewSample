@@ -58,7 +58,7 @@ extension GridViewController {
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: imageName)
         })
 
-        let images = Database().getImageNames()
+        let images = RandomImageDatabase().getImageNames()
         var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
         snapshot.appendSections([.main])
         snapshot.appendItems(images)

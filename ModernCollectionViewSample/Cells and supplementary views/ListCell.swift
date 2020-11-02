@@ -37,7 +37,7 @@ extension ListCell {
             containerView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        
+
         NSLayoutConstraint.activate([
             iconImageView.centerYAnchor.constraint(equalTo: iconImageView.superview!.centerYAnchor),
             iconImageView.leftAnchor.constraint(equalTo: iconImageView.superview!.leftAnchor),
@@ -66,7 +66,7 @@ extension ListCell {
         iconImageView.image = UIImage(named: model.iconName)
         titleLabel.text = model.title
     }
-    
+
     func setSeparatorView(hidden: Bool) {
         separatorView.isHidden = hidden
     }

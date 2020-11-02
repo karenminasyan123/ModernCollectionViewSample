@@ -34,7 +34,8 @@ class MenuViewController: UICollectionViewController {
              MenuItem(title: "Section Headers Sample", viewControllerType: SectionHeadersViewController.self),
              MenuItem(title: "Nested Groups Sample", viewControllerType: NestedGroupsViewController.self),
              MenuItem(title: "Different Scroll Behaviors", viewControllerType: ScrollBehaviorsViewController.self),
-             MenuItem(title: "App Store Sample", viewControllerType: AppStoreViewController.self)]
+             MenuItem(title: "App Store Sample", viewControllerType: AppStoreViewController.self),
+             MenuItem(title: "Pinterest layout", viewControllerType: PinterestLayoutViewController.self)]
         }
     }
 

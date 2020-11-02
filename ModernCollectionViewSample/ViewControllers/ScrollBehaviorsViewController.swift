@@ -104,7 +104,7 @@ extension ScrollBehaviorsViewController {
         }
 
         var snapshot = NSDiffableDataSourceSnapshot<SectionKind, String>()
-        let images = Database().getImageNames()
+        let images = RandomImageDatabase().getImageNames()
 
         var offset = 0
         SectionKind.allCases.forEach {

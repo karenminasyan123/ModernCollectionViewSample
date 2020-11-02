@@ -11,7 +11,7 @@ class AppStoreViewController: UIViewController {
     static let headerElementKind = "header-element-kind"
 
     lazy var collections: [ItemCollection] = {
-        let database = Database()
+        let database = ItemDatabase()
         return database.getItemCollections()
     }()
 
