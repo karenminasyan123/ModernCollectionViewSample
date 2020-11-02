@@ -15,7 +15,6 @@
 		1C4D27B5253B4864007FE181 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D27B4253B4864007FE181 /* GridViewController.swift */; };
 		1C4D2888253C3772007FE181 /* SectionHeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */; };
 		1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */; };
-		1C5EAAB0254587ED002604E5 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EAAAF254587ED002604E5 /* File.swift */; };
 		1C61FEB1253CD7020026A4CE /* ScrollBehaviorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */; };
 		1C61FEB8253CDC020026A4CE /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61FEB7253CDC020026A4CE /* ImageCell.swift */; };
 		1C89CC4E254DD01400A26590 /* PinterestLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C89CC4D254DD01400A26590 /* PinterestLayoutViewController.swift */; };
@@ -44,7 +43,6 @@
 		1C4D27B4253B4864007FE181 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeadersViewController.swift; sourceTree = "<group>"; };
 		1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupsViewController.swift; sourceTree = "<group>"; };
-		1C5EAAAF254587ED002604E5 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBehaviorsViewController.swift; sourceTree = "<group>"; };
 		1C61FEB7253CDC020026A4CE /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		1C89CC4D254DD01400A26590 /* PinterestLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayoutViewController.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				1CD2A92325287801004BBD65 /* Assets.xcassets */,
 				1CD2A92525287801004BBD65 /* LaunchScreen.storyboard */,
 				1CD2A92825287801004BBD65 /* Info.plist */,
-				1C5EAAAF254587ED002604E5 /* File.swift */,
 			);
 			path = ModernCollectionViewSample;
 			sourceTree = "<group>";
@@ -255,7 +252,6 @@
 				1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */,
 				1C4D27B5253B4864007FE181 /* GridViewController.swift in Sources */,
 				1C89CC4E254DD01400A26590 /* PinterestLayoutViewController.swift in Sources */,
-				1C5EAAB0254587ED002604E5 /* File.swift in Sources */,
 				1C914535253E06BC0040C5D6 /* AdaptiveGridViewController.swift in Sources */,
 				1C1819D2252A2FBA006FA6F7 /* ItemDatabase.swift in Sources */,
 				1C4D27A7253B1E9B007FE181 /* MenuViewController.swift in Sources */,
