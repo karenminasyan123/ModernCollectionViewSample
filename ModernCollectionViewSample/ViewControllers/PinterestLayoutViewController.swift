@@ -38,22 +38,8 @@ class PinterestLayoutViewController: UIViewController {
         width > 600 ? 3 : 2
     }
 
-    // MARK: - Height calculations
     func getImageHeights(for cellWidth: CGFloat) -> [Int] {
         imageItems.map { (Int(cellWidth) * $0.height) / $0.width }
-    }
-
-    // Calculating each calumns height and returning the biggest one
-    func contentHeightFor(columnsCount: Int, imageHeights: [Int]) -> Int {
-        var columnHeights = Array(repeating: 0, count: columnsCount)
-
-        var column = 0
-        for height in imageHeights {
-            columnHeights[column] += height + self.spacing * 2
-            column = (column >= columnsCount - 1) ? 0 : column + 1
-        }
-
-        return columnHeights.max()!
     }
 }
 
@@ -73,9 +59,7 @@ extension PinterestLayoutViewController {
             let columnsCount = self.columnsCountFor(width: containerWidth)
             let cellWidth = (Int(containerWidth) - (columnsCount + 1) * self.spacing) / columnsCount
             let imageHeights = self.getImageHeights(for: CGFloat(cellWidth))
-            let groupHeight = self.contentHeightFor(columnsCount: columnsCount, imageHeights: imageHeights)
-
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(CGFloat(groupHeight)))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
 
             let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { (environment) -> [NSCollectionLayoutGroupCustomItem] in
 
