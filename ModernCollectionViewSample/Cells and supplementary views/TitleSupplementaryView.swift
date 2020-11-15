@@ -1,9 +1,9 @@
-/*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-Simple example of a self-sizing supplementary title view
-*/
+//
+//  TitleSupplementaryView.swift
+//  ModernCollectionViewSample
+//
+//  Created by Karen Minasyan on 10/10/20.
+//
 
 import UIKit
 

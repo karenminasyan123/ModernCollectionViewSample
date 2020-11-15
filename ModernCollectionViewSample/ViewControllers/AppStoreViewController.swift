@@ -90,8 +90,7 @@ extension AppStoreViewController {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
             guard let self = self else { return nil }
             let sectionKind = self.sectionKind(sectionIndex: sectionIndex)
-            // The group auto-calculates the actual item width to make
-            // the requested number of columns fit, so this heightDimension is ignored.
+
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
