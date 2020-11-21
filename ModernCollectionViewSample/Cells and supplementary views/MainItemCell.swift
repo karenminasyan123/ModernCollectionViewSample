@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainItemCell: UICollectionViewCell {
+final class MainItemCell: UICollectionViewCell {
 
     private let commentLabel = UILabel()
     private let titleLabel = UILabel()
@@ -32,14 +32,14 @@ extension MainItemCell {
     private func configureHierarchy() {
         let titlesStackView = UIStackView(arrangedSubviews: [commentLabel, titleLabel, subTitleLabel])
         titlesStackView.axis = .vertical
-        
+
         let stackView = UIStackView(arrangedSubviews: [SeparatorView(), titlesStackView, imageView])
         stackView.frame = bounds
         stackView.distribution = .fillProportionally
         stackView.axis = .vertical
         stackView.spacing = 12
         addSubview(stackView)
-        
+
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalToConstant: 220).isActive = true
     }
@@ -55,7 +55,7 @@ extension MainItemCell {
         subTitleLabel.numberOfLines = 1
         subTitleLabel.textColor = .systemGray
         subTitleLabel.font = UIFont.systemFont(ofSize: 22)
-        
+
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
         imageView.contentMode = .redraw

@@ -7,11 +7,11 @@
 
 import UIKit
 
-class SectionHeadersViewController: UIViewController {
+final class SectionHeadersViewController: UIViewController {
 
-    var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Int, Int>!
-    let headerKind = "headerKind"
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Int, Int>!
+    private let headerKind = "headerKind"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class SectionHeadersViewController: UIViewController {
 }
 
 extension SectionHeadersViewController {
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.showsVerticalScrollIndicator = false
@@ -30,7 +30,7 @@ extension SectionHeadersViewController {
         view.addSubview(collectionView)
     }
 
-    func createLayout() -> UICollectionViewCompositionalLayout {
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(60))
@@ -49,7 +49,7 @@ extension SectionHeadersViewController {
         return layout
     }
 
-    func configureDataSource() {
+    private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Int> {cell, indexPath, number in
             var configuration = cell.defaultContentConfiguration()
             configuration.text = "Row \(number)"

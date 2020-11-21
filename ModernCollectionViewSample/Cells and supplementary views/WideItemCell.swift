@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WideItemCell: ItemCell {
+final class WideItemCell: ItemCell {
     override func configureConstraints() {
         NSLayoutConstraint.activate([
             iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
@@ -29,7 +29,7 @@ class WideItemCell: ItemCell {
             purchaseLabel.centerYAnchor.constraint(equalTo: getButton.centerYAnchor)
         ])
     }
-    
+
     override func configureUI() {
         super.configureUI()
         purchaseLabel.text = "In-App\nPurchases"

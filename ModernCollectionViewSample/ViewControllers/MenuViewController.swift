@@ -9,7 +9,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class MenuViewController: UICollectionViewController {
+final class MenuViewController: UICollectionViewController {
 
     enum Section {
         case main
@@ -40,18 +40,18 @@ class MenuViewController: UICollectionViewController {
         }
     }
 
+    private var dataSource: UICollectionViewDiffableDataSource<Section, MenuItem>! = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
         configureDataSource()
     }
-    
-    var dataSource: UICollectionViewDiffableDataSource<Section, MenuItem>! = nil
 }
 
 extension MenuViewController {
 
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemBackground
@@ -59,13 +59,13 @@ extension MenuViewController {
         view.addSubview(collectionView)
     }
 
-    func createLayout() -> UICollectionViewCompositionalLayout {
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         return layout
     }
     
-    func configureDataSource() {
+    private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, MenuItem> { cell, indexPath, menuItem in
             var configuration = cell.defaultContentConfiguration()
             configuration.text = menuItem.title

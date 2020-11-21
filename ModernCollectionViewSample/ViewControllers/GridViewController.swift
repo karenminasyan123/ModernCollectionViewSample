@@ -7,14 +7,14 @@
 
 import UIKit
 
-class GridViewController: UIViewController {
+final class GridViewController: UIViewController {
 
     enum Section {
         case main
     }
 
-    var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, String>!
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, String>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class GridViewController: UIViewController {
 }
 
 extension GridViewController {
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.showsVerticalScrollIndicator = false
@@ -33,7 +33,7 @@ extension GridViewController {
         view.addSubview(collectionView)
     }
 
-    func createLayout() -> UICollectionViewCompositionalLayout {
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets.init(top: 10, leading: 10, bottom: 10, trailing: 10)
@@ -49,7 +49,7 @@ extension GridViewController {
         return layout
     }
 
-    func configureDataSource() {
+    private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<ImageCell, String> { cell, indexPath, imageName in
             cell.setImage(name: imageName)
         }

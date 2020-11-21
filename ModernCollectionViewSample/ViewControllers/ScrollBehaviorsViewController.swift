@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ScrollBehaviorsViewController: UIViewController {
+final class ScrollBehaviorsViewController: UIViewController {
 
     enum SectionKind: Int, CaseIterable {
         case continuous,
@@ -35,9 +35,9 @@ class ScrollBehaviorsViewController: UIViewController {
         }
     }
 
-    let headerKind = "headerKind"
-    var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<SectionKind, String>!
+    private let headerKind = "headerKind"
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<SectionKind, String>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,13 +45,13 @@ class ScrollBehaviorsViewController: UIViewController {
         configureDataSource()
     }
     
-    func columnsCount(for width: CGFloat) -> Int {
+    private func columnsCount(for width: CGFloat) -> Int {
         width > 600 ? 3 : 2
     }
 }
 
 extension ScrollBehaviorsViewController {
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.showsVerticalScrollIndicator = false
@@ -60,7 +60,7 @@ extension ScrollBehaviorsViewController {
         view.addSubview(collectionView)
     }
 
-    func createLayout() -> UICollectionViewCompositionalLayout {
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout.init(sectionProvider: { index, environment in
             let sectionKind = SectionKind(rawValue: index)!
             let columnsCount = self.columnsCount(for: environment.container.effectiveContentSize.width)
@@ -85,7 +85,7 @@ extension ScrollBehaviorsViewController {
         })
     }
 
-    func configureDataSource() {
+    private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<ImageCell, String> { cell, indexPath, imageName in
             cell.setImage(name: imageName)
         }

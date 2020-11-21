@@ -7,24 +7,24 @@
 
 import UIKit
 
-class PinterestLayoutViewController: UIViewController {
+ final class PinterestLayoutViewController: UIViewController {
 
     enum Section {
         case main
     }
 
-    var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, String>!
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, String>!
 
-    let spacing = 10
+    private let spacing = 10
 
     // Random image items
-    lazy var imageItems: [ImageItem] = {
+    private lazy var imageItems: [ImageItem] = {
         RandomImageDatabase().getRandomImageItems()
     }()
 
     // Random image names
-    lazy var imageNames: [String] = {
+    private lazy var imageNames: [String] = {
         imageItems.map(\.name)
     }()
 
@@ -34,17 +34,17 @@ class PinterestLayoutViewController: UIViewController {
         configureDataSource()
     }
 
-    func columnsCountFor(width: CGFloat) -> Int {
+    private func columnsCountFor(width: CGFloat) -> Int {
         width > 600 ? 3 : 2
     }
 
-    func getImageHeights(for cellWidth: CGFloat) -> [Int] {
+    private func getImageHeights(for cellWidth: CGFloat) -> [Int] {
         imageItems.map { (Int(cellWidth) * $0.height) / $0.width }
     }
 }
 
 extension PinterestLayoutViewController {
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.showsVerticalScrollIndicator = false
@@ -53,7 +53,7 @@ extension PinterestLayoutViewController {
         view.addSubview(collectionView)
     }
 
-    func createLayout() -> UICollectionViewCompositionalLayout {
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { _, environment in
             let containerWidth = environment.container.effectiveContentSize.width
             let columnsCount = self.columnsCountFor(width: containerWidth)
@@ -91,7 +91,7 @@ extension PinterestLayoutViewController {
         }
     }
 
-    func configureDataSource() {
+    private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<ImageCell, String> {cell, indexPath, imageName in
             cell.setImage(name: imageName)
             cell.setStyle(.rounded)

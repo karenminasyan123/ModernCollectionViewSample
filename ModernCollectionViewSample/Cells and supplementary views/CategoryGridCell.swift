@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryGridCell: UICollectionViewCell {
+final class CategoryGridCell: UICollectionViewCell {
 
     private let imageView = UIImageView()
     private let titleLabel = UILabel()

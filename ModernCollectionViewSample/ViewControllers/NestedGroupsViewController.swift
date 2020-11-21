@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NestedGroupsViewController: UIViewController {
+final class NestedGroupsViewController: UIViewController {
 
     enum Section {
         case main
@@ -24,7 +24,7 @@ class NestedGroupsViewController: UIViewController {
 }
 
 extension NestedGroupsViewController {
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.showsVerticalScrollIndicator = false
@@ -33,7 +33,7 @@ extension NestedGroupsViewController {
         view.addSubview(collectionView)
     }
     
-    func createLayout() -> UICollectionViewCompositionalLayout {
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets.init(top: 5, leading: 5, bottom: 5, trailing: 5)
@@ -57,7 +57,7 @@ extension NestedGroupsViewController {
         return layout
     }
     
-    func configureDataSource() {
+    private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, String> {cell, title, IndexPath in
             cell.backgroundColor = .systemPink
             cell.layer.borderColor = UIColor.systemBlue.cgColor

@@ -19,7 +19,7 @@ class ItemCell: UICollectionViewCell {
 
     private let separatorView = SeparatorView()
 
-    open var titlesStackView: UIStackView!
+    var titlesStackView: UIStackView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -107,7 +107,7 @@ class ItemCell: UICollectionViewCell {
         titleLabel.text = model.title
         subTitleLabel.text = model.subTitle
     }
-    
+
     func setSeparatorView(hidden: Bool) {
         separatorView.isHidden = hidden
     }

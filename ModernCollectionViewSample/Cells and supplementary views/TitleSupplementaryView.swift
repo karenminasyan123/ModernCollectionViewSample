@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleSupplementaryView: UICollectionReusableView {
+final class TitleSupplementaryView: UICollectionReusableView {
     private let titleLabel = UILabel()
     private let actionButton = UIButton()
     private let separatorView = SeparatorView()
@@ -46,7 +46,7 @@ extension TitleSupplementaryView {
         ])
     }
 
-    func configure() {
+    private func configure() {
         backgroundColor = .systemBackground
         titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)

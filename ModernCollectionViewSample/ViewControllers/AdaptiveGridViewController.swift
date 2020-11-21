@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AdaptiveGridViewController: UIViewController {
+final class AdaptiveGridViewController: UIViewController {
 
     enum Section {
         case main
@@ -22,13 +22,13 @@ class AdaptiveGridViewController: UIViewController {
         configureDataSource()
     }
 
-    func columnsCount(for width: CGFloat) -> Int {
+    private func columnsCount(for width: CGFloat) -> Int {
         width > 600 ? 4 : 2
     }
 }
 
 extension AdaptiveGridViewController {
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.showsVerticalScrollIndicator = false
@@ -37,7 +37,7 @@ extension AdaptiveGridViewController {
         view.addSubview(collectionView)
     }
 
-    func createLayout() -> UICollectionViewCompositionalLayout {
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout.init(sectionProvider: { index, environment in
             let columnsCount = self.columnsCount(for: environment.container.effectiveContentSize.width)
             let fractionalWidth = 1 / CGFloat(columnsCount)
@@ -55,7 +55,7 @@ extension AdaptiveGridViewController {
         })
     }
 
-    func configureDataSource() {
+    private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<ImageCell, String> { cell, indexPath, imageName in
             cell.setImage(name: imageName)
         }

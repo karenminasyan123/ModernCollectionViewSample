@@ -7,10 +7,10 @@
 
 import UIKit
 
-class AppStoreViewController: UIViewController {
-    static let headerElementKind = "header-element-kind"
+final class AppStoreViewController: UIViewController {
+    private static let headerElementKind = "header-element-kind"
 
-    lazy var collections: [ItemCollection] = {
+    private lazy var collections: [ItemCollection] = {
         let database = ItemDatabase()
         return database.getItemCollections()
     }()
@@ -61,8 +61,8 @@ class AppStoreViewController: UIViewController {
         }
     }
 
-    var dataSource: UICollectionViewDiffableDataSource<ItemCollection, ItemModel>! = nil
-    var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<ItemCollection, ItemModel>! = nil
+    private var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +71,7 @@ class AppStoreViewController: UIViewController {
         configureDataSource()
     }
 
-    func sectionKind(sectionIndex: Int) -> SectionLayoutKind {
+    private func sectionKind(sectionIndex: Int) -> SectionLayoutKind {
         let sortIndex = collections[sectionIndex].sectionKindId
         switch sortIndex {
         case 0: return .singleRow
@@ -86,7 +86,7 @@ class AppStoreViewController: UIViewController {
 
 extension AppStoreViewController {
 
-    func createLayout() -> UICollectionViewCompositionalLayout {
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
             guard let self = self else { return nil }
             let sectionKind = self.sectionKind(sectionIndex: sectionIndex)
@@ -116,7 +116,7 @@ extension AppStoreViewController {
 }
 
 extension AppStoreViewController {
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemBackground
@@ -125,7 +125,7 @@ extension AppStoreViewController {
         view.addSubview(collectionView)
     }
 
-    func configureDataSource() {
+    private func configureDataSource() {
 
         let mainCellRegistration = UICollectionView.CellRegistration<MainItemCell, ItemModel> { cell, indexPath, model in
             cell.setup(model: model)

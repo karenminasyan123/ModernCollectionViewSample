@@ -11,6 +11,7 @@ let widthDimension = NSCollectionLayoutDimension.fractionalWidth(0.5)
 
 let heightDimension = NSCollectionLayoutDimension.fractionalHeight(0.3)
 
-let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),                                       heightDimension: .estimated(100))
+let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+                                  heightDimension: .estimated(100))
 
 
