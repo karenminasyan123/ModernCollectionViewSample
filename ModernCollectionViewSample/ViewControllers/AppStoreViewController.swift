@@ -41,21 +41,21 @@ final class AppStoreViewController: UIViewController {
             case .list: return 45
             }
         }
-        
+
         var groupFractionalWidth: CGFloat {
             switch self {
             case .shortRow: return 0.7
             default: return 0.91
             }
         }
-        
+
         var orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior {
             switch self {
             case .list: return .none
             default: return .groupPaging
             }
         }
-        
+
         var hasHeader: Bool {
             self != .singleRow
         }

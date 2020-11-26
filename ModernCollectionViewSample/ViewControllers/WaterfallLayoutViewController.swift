@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  WaterfallLayoutViewController.swift
 //  ModernCollectionViewSample
 //
 //  Created by Karen Minasyan on 10/31/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
- final class PinterestLayoutViewController: UIViewController {
+ final class WaterfallLayoutViewController: UIViewController {
 
     enum Section {
         case main
@@ -43,7 +43,7 @@ import UIKit
     }
 }
 
-extension PinterestLayoutViewController {
+extension WaterfallLayoutViewController {
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -108,7 +108,7 @@ extension PinterestLayoutViewController {
     }
 }
 
-extension PinterestLayoutViewController: UICollectionViewDelegate {
+extension WaterfallLayoutViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
     }
