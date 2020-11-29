@@ -85,6 +85,14 @@ final class AppStoreViewController: UIViewController {
 }
 
 extension AppStoreViewController {
+    private func configureCollectionView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = .systemBackground
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
+        view.addSubview(collectionView)
+    }
 
     private func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
@@ -113,17 +121,6 @@ extension AppStoreViewController {
             return section
         }
     }
-}
-
-extension AppStoreViewController {
-    private func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .systemBackground
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.delegate = self
-        view.addSubview(collectionView)
-    }
 
     private func configureDataSource() {
 
@@ -141,13 +138,13 @@ extension AppStoreViewController {
             cell.setSeparatorView(hidden: indexPath.row % 2 == 0)
         }
 
-        let listCellRegistration = UICollectionView.CellRegistration<ListCell, ItemModel> { cell, indexPath, model in
-            cell.setup(model: model)
+        let listCellRegistration = UICollectionView.CellRegistration<CategoryListCell, ItemModel> { cell, indexPath, model in
+            cell.setup(title: model.title, iconName: model.iconName)
             cell.setSeparatorView(hidden: indexPath.row == 0)
         }
 
         let categoryGridCellRegistration = UICollectionView.CellRegistration<CategoryGridCell, ItemModel> { cell, indexPath, model in
-            cell.setup(model: model)
+            cell.setup(title: model.title, imageName: model.iconName)
         }
 
         dataSource = UICollectionViewDiffableDataSource<ItemCollection, ItemModel>(collectionView: collectionView) {

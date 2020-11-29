@@ -36,6 +36,7 @@ extension ListViewController {
     private func createLayout() -> UICollectionViewCompositionalLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: 1, leading: 0, bottom: 0, trailing: 0)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(44.0))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
@@ -48,20 +49,19 @@ extension ListViewController {
     }
 
     private func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String> { cell, indexPath, title in
-            var configuration = cell.defaultContentConfiguration()
-            configuration.text = title
-            cell.contentConfiguration = configuration
+        let cellRegistration = UICollectionView.CellRegistration<ListCell, String> { cell, indexPath, title in
+            cell.setTitle(title)
+            cell.backgroundColor = .systemIndigo
         }
 
         dataSource = UICollectionViewDiffableDataSource<Section, String>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, imageName) in
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: imageName)
         })
 
-        let images = RandomImageDatabase().getImageNames()
         var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
+        let strings = (1 ... 100).map { "\($0)" }
         snapshot.appendSections([.main])
-        snapshot.appendItems(images)
+        snapshot.appendItems(strings)
 
         dataSource.apply(snapshot)
     }

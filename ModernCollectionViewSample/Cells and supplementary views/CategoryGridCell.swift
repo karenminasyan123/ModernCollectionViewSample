@@ -45,8 +45,8 @@ extension CategoryGridCell {
 
     // MARK: - Public API
 
-    func setup(model: ItemModel) {
-        imageView.image = UIImage(named: model.iconName)
-        titleLabel.text = model.title
+    func setup(title: String, imageName: String) {
+        imageView.image = UIImage(named: imageName)
+        titleLabel.text = title
     }
 }

@@ -59,7 +59,7 @@ extension NestedGroupsViewController {
     
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, String> {cell, title, IndexPath in
-            cell.backgroundColor = .systemPink
+            cell.backgroundColor = .systemIndigo
             cell.layer.borderColor = UIColor.systemBlue.cgColor
             cell.layer.borderWidth = 1
         }

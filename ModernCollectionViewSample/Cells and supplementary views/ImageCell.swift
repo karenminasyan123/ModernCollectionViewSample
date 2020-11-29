@@ -45,6 +45,10 @@ extension ImageCell {
         imageView.image = UIImage(named: name)
     }
     
+    func setImage(image: UIImage) {
+        imageView.image = image
+    }
+    
     func setStyle(_ style: Style) {
         switch style {
         case .rounded:
