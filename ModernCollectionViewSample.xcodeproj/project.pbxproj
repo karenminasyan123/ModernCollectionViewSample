@@ -97,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				1C1819CC252A2D5C006FA6F7 /* ItemModel.swift */,
+				1C1819D1252A2FBA006FA6F7 /* ItemDatabase.swift */,
+				1C89CC51254EC06600A26590 /* RamdomImageDatabase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,8 +156,6 @@
 			children = (
 				1CD2A91A252877FE004BBD65 /* AppDelegate.swift */,
 				1CD2A91C252877FE004BBD65 /* SceneDelegate.swift */,
-				1C1819D1252A2FBA006FA6F7 /* ItemDatabase.swift */,
-				1C89CC51254EC06600A26590 /* RamdomImageDatabase.swift */,
 				1C4D27B8253B496E007FE181 /* ViewControllers */,
 				1C1819BD2528D26E006FA6F7 /* Cells and supplementary views */,
 				1CB69C592531F6F000C5EEB6 /* Custom Views */,

@@ -66,7 +66,7 @@ final class AppStoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Apps"
+        navigationItem.title = "App Store"
         configureCollectionView()
         configureDataSource()
     }
