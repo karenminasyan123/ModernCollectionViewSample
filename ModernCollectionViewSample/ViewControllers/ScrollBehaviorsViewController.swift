@@ -44,7 +44,11 @@ final class ScrollBehaviorsViewController: UIViewController {
         configureCollectionView()
         configureDataSource()
     }
-    
+
+    func getImageNames() -> [String] {
+        (1...101).map { "image\($0)" }
+    }
+
     private func columnsCount(for width: CGFloat) -> Int {
         width > 600 ? 3 : 2
     }
@@ -104,7 +108,7 @@ extension ScrollBehaviorsViewController {
         }
 
         var snapshot = NSDiffableDataSourceSnapshot<SectionKind, String>()
-        let images = RandomImageDatabase().getImageNames()
+        let images = getImageNames()
 
         var offset = 0
         SectionKind.allCases.forEach {

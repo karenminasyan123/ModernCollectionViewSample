@@ -21,6 +21,10 @@ final class GridViewController: UIViewController {
         configureCollectionView()
         configureDataSource()
     }
+
+    func getImageNames() -> [String] {
+        (1...101).map { "image\($0)" }
+    }
 }
 
 extension GridViewController {
@@ -58,7 +62,7 @@ extension GridViewController {
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: imageName)
         })
 
-        let images = RandomImageDatabase().getImageNames()
+        let images = getImageNames()
         var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
         snapshot.appendSections([.main])
         snapshot.appendItems(images)

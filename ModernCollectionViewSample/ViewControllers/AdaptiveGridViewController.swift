@@ -22,6 +22,10 @@ final class AdaptiveGridViewController: UIViewController {
         configureDataSource()
     }
 
+    func getImageNames() -> [String] {
+        (1...101).map { "image\($0)" }
+    }
+
     private func columnsCount(for width: CGFloat) -> Int {
         width > 600 ? 4 : 2
     }
@@ -64,7 +68,7 @@ extension AdaptiveGridViewController {
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: imageName)
         })
 
-        let images = RandomImageDatabase().getImageNames()
+        let images = getImageNames()
         var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
         snapshot.appendSections([.main])
         snapshot.appendItems(images)
