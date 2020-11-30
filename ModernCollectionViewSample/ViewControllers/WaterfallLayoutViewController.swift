@@ -13,8 +13,17 @@ import UIKit
         case main
     }
 
+    struct ImageItem: Hashable {
+        let image: UIImage
+        private let identifier = UUID()
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(identifier)
+        }
+    }
+
     private var collectionView: UICollectionView!
-    private var dataSource: UICollectionViewDiffableDataSource<Section, UIImage>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, ImageItem>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +62,7 @@ extension WaterfallLayoutViewController {
             let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { environment -> [NSCollectionLayoutGroupCustomItem] in
 
                 var items = [NSCollectionLayoutGroupCustomItem]()
-                // set values for first row
+                // set values for the first row
                 let xOffsets = (0 ..< columnsCount).map { $0 * cellWidth + ($0 + 1) * spacing }
                 var yOffsets = Array(repeating: spacing, count: columnsCount)
                 var groupHeights = Array(repeating: spacing, count: columnsCount)
@@ -62,8 +71,8 @@ extension WaterfallLayoutViewController {
                 // Compute frame for each item
                 let imageItems = self.dataSource.snapshot(for: Section.main).items
 
-                for image in imageItems {
-                    let height = CGFloat(spacing) + CGFloat(cellWidth) * image.size.height / image.size.width
+                for item in imageItems {
+                    let height = CGFloat(spacing) + CGFloat(cellWidth) * item.image.size.height / item.image.size.width
 
                     let frame = CGRect(x: xOffsets[column],
                                        y: yOffsets[column],
@@ -98,50 +107,52 @@ extension WaterfallLayoutViewController {
             var groupItemsArray = Array(repeating: [NSCollectionLayoutItem](), count: columnsCount)
             let items = self.dataSource.snapshot(for: Section.main).items
 
-            for image in items {
-                let height = CGFloat(cellWidth) * image.size.height / image.size.width
-                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height))
+            for item in items {
+                let height = CGFloat(cellWidth) * item.image.size.height / item.image.size.width
+                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                        heightDimension: .absolute(height))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: layoutSize)
                 layoutItem.contentInsets = .init(top: 10, leading: 10, bottom: 10, trailing: 10)
 
-                let minHeight = groupHeights.min()!
-                let index = groupHeights.firstIndex(of: minHeight)!
+                let index = groupHeights.firstIndex(of: groupHeights.min()!)!
                 groupItemsArray[index].append(layoutItem)
                 groupHeights[index] += height
             }
 
-            var layoutGroups = [NSCollectionLayoutGroup]()
+            var verticalGroups = [NSCollectionLayoutGroup]()
             for i in 0 ..< columnsCount {
                 let fracWidth = 1.0 / CGFloat(columnsCount)
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fracWidth),
                                                        heightDimension: .absolute(groupHeights[i]))
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
                                                              subitems:groupItemsArray[i])
-                layoutGroups.append(group)
+                verticalGroups.append(group)
             }
-            
-            let containerGroupHeight = groupHeights.max()!
-            let containerGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(containerGroupHeight))
-            let containerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: containerGroupSize, subitems: layoutGroups)
-            
+
+            let height = groupHeights.max()!
+            let containerGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                            heightDimension: .absolute(height))
+            let containerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: containerGroupSize,
+                                                                    subitems: verticalGroups)
+
             let section = NSCollectionLayoutSection(group: containerGroup)
             return section
         }
     }
 
     private func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<ImageCell, UIImage> {cell, indexPath, image in
-            cell.setImage(image: image)
+        let cellRegistration = UICollectionView.CellRegistration<ImageCell, ImageItem> {cell, indexPath, item in
+            cell.setImage(image: item.image)
             cell.setStyle(.rounded)
         }
 
-        dataSource = UICollectionViewDiffableDataSource<Section, UIImage>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, imageName) in
+        dataSource = UICollectionViewDiffableDataSource<Section, ImageItem>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, imageName) in
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: imageName)
         })
 
-        var snapshot = NSDiffableDataSourceSnapshot<Section, UIImage>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, ImageItem>()
         snapshot.appendSections([.main])
-        let items = getImageNames().map { UIImage(named: $0)! }
+        let items = getImageNames().map { ImageItem(image: UIImage(named: $0)!) }
         snapshot.appendItems(items)
         dataSource.apply(snapshot)
     }
