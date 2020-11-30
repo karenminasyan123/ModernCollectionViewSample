@@ -50,7 +50,7 @@ class ItemDatabase {
                         items: [
                             ItemModel(iconName: "picsart",
                                       title: "PicsArt Photo & Video Editor",
-                                      subTitle: "Movie Maker & Video Editor"),
+                                      subTitle: "Sticker, Meme & Collage Maker"),
                             ItemModel(iconName: "photocollage",
                                       title: "PhotoGrid Video Collage maker",
                                       subTitle: "Video Collage & Video Editor"),
