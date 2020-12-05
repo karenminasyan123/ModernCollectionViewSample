@@ -35,8 +35,8 @@ final class MenuViewController: UICollectionViewController {
              MenuItem(title: "Supplementary Items Sample", viewControllerType: SupplementaryItemsViewController.self),
              MenuItem(title: "Nested Groups Sample", viewControllerType: NestedGroupsViewController.self),
              MenuItem(title: "Different Scroll Behaviors", viewControllerType: ScrollBehaviorsViewController.self),
-             MenuItem(title: "Waterfall layout", viewControllerType: WaterfallLayoutViewController.self),
-             MenuItem(title: "App Store Sample", viewControllerType: AppStoreViewController.self)]
+             MenuItem(title: "App Store Sample", viewControllerType: AppStoreViewController.self),
+             MenuItem(title: "Waterfall layout", viewControllerType: WaterfallLayoutViewController.self)]
         }
     }
 
