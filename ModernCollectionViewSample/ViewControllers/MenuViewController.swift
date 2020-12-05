@@ -32,11 +32,11 @@ final class MenuViewController: UICollectionViewController {
             [MenuItem(title: "List Sample", viewControllerType: ListViewController.self),
              MenuItem(title: "Grid Sample", viewControllerType: GridViewController.self),
              MenuItem(title: "Adaptive Grid Sample", viewControllerType: AdaptiveGridViewController.self),
-             MenuItem(title: "Section Headers Sample", viewControllerType: SectionHeadersViewController.self),
+             MenuItem(title: "Supplementary Items Sample", viewControllerType: SupplementaryItemsViewController.self),
              MenuItem(title: "Nested Groups Sample", viewControllerType: NestedGroupsViewController.self),
              MenuItem(title: "Different Scroll Behaviors", viewControllerType: ScrollBehaviorsViewController.self),
-             MenuItem(title: "App Store Sample", viewControllerType: AppStoreViewController.self),
-             MenuItem(title: "Waterfall layout", viewControllerType: WaterfallLayoutViewController.self)]
+             MenuItem(title: "Waterfall layout", viewControllerType: WaterfallLayoutViewController.self),
+             MenuItem(title: "App Store Sample", viewControllerType: AppStoreViewController.self)]
         }
     }
 

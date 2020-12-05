@@ -13,7 +13,7 @@
 		1C1819D2252A2FBA006FA6F7 /* ItemDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1819D1252A2FBA006FA6F7 /* ItemDatabase.swift */; };
 		1C4D27A7253B1E9B007FE181 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D27A6253B1E9B007FE181 /* MenuViewController.swift */; };
 		1C4D27B5253B4864007FE181 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D27B4253B4864007FE181 /* GridViewController.swift */; };
-		1C4D2888253C3772007FE181 /* SectionHeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */; };
+		1C4D2888253C3772007FE181 /* SupplementaryItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2887253C3772007FE181 /* SupplementaryItemsViewController.swift */; };
 		1C4D288B253C651D007FE181 /* NestedGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */; };
 		1C61FEB1253CD7020026A4CE /* ScrollBehaviorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */; };
 		1C61FEB8253CDC020026A4CE /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61FEB7253CDC020026A4CE /* ImageCell.swift */; };
@@ -26,6 +26,7 @@
 		1CB69C622531FBCA00C5EEB6 /* CategoryGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69C612531FBCA00C5EEB6 /* CategoryGridCell.swift */; };
 		1CB69D322532054300C5EEB6 /* UIView+AddSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69D312532054300C5EEB6 /* UIView+AddSubview.swift */; };
 		1CB69D3725323F0100C5EEB6 /* WideItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB69D3625323F0100C5EEB6 /* WideItemCell.swift */; };
+		1CC717B8257B823C00CA50CA /* BadgeSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC717B7257B823C00CA50CA /* BadgeSupplementaryView.swift */; };
 		1CCF99D225540B2D00CDF100 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF99D125540B2D00CDF100 /* Test.swift */; };
 		1CD2A91B252877FE004BBD65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2A91A252877FE004BBD65 /* AppDelegate.swift */; };
 		1CD2A91D252877FE004BBD65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2A91C252877FE004BBD65 /* SceneDelegate.swift */; };
@@ -43,7 +44,7 @@
 		1C1819D1252A2FBA006FA6F7 /* ItemDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDatabase.swift; sourceTree = "<group>"; };
 		1C4D27A6253B1E9B007FE181 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1C4D27B4253B4864007FE181 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
-		1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeadersViewController.swift; sourceTree = "<group>"; };
+		1C4D2887253C3772007FE181 /* SupplementaryItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryItemsViewController.swift; sourceTree = "<group>"; };
 		1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupsViewController.swift; sourceTree = "<group>"; };
 		1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBehaviorsViewController.swift; sourceTree = "<group>"; };
 		1C61FEB7253CDC020026A4CE /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		1CB69C612531FBCA00C5EEB6 /* CategoryGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryGridCell.swift; sourceTree = "<group>"; };
 		1CB69D312532054300C5EEB6 /* UIView+AddSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubview.swift"; sourceTree = "<group>"; };
 		1CB69D3625323F0100C5EEB6 /* WideItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideItemCell.swift; sourceTree = "<group>"; };
+		1CC717B7257B823C00CA50CA /* BadgeSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSupplementaryView.swift; sourceTree = "<group>"; };
 		1CCF99D125540B2D00CDF100 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		1CD2A917252877FE004BBD65 /* ModernCollectionViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernCollectionViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD2A91A252877FE004BBD65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,9 +89,10 @@
 				1CB69D3625323F0100C5EEB6 /* WideItemCell.swift */,
 				1CB69C4D2531CB0E00C5EEB6 /* CategoryListCell.swift */,
 				1CB69C612531FBCA00C5EEB6 /* CategoryGridCell.swift */,
-				1C1819BA2528D26A006FA6F7 /* TitleSupplementaryView.swift */,
 				1C61FEB7253CDC020026A4CE /* ImageCell.swift */,
 				1C7A3FB425743F4200FA7FCC /* ListCell.swift */,
+				1C1819BA2528D26A006FA6F7 /* TitleSupplementaryView.swift */,
+				1CC717B7257B823C00CA50CA /* BadgeSupplementaryView.swift */,
 			);
 			path = "Cells and supplementary views";
 			sourceTree = "<group>";
@@ -110,11 +113,11 @@
 				1C67F02F25504170005E79AF /* ListViewController.swift */,
 				1C4D27B4253B4864007FE181 /* GridViewController.swift */,
 				1C914534253E06BC0040C5D6 /* AdaptiveGridViewController.swift */,
-				1C4D2887253C3772007FE181 /* SectionHeadersViewController.swift */,
+				1C4D2887253C3772007FE181 /* SupplementaryItemsViewController.swift */,
 				1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */,
 				1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */,
-				1CD2A91E252877FE004BBD65 /* AppStoreViewController.swift */,
 				1C89CC4D254DD01400A26590 /* WaterfallLayoutViewController.swift */,
+				1CD2A91E252877FE004BBD65 /* AppStoreViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -241,7 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CD2A91F252877FE004BBD65 /* AppStoreViewController.swift in Sources */,
-				1C4D2888253C3772007FE181 /* SectionHeadersViewController.swift in Sources */,
+				1C4D2888253C3772007FE181 /* SupplementaryItemsViewController.swift in Sources */,
 				1C1819CD252A2D5C006FA6F7 /* ItemModel.swift in Sources */,
 				1C61FEB8253CDC020026A4CE /* ImageCell.swift in Sources */,
 				1CB69C512531CDEC00C5EEB6 /* SeparatorView.swift in Sources */,
@@ -250,6 +253,7 @@
 				1C61FEB1253CD7020026A4CE /* ScrollBehaviorsViewController.swift in Sources */,
 				1CB69D322532054300C5EEB6 /* UIView+AddSubview.swift in Sources */,
 				1C1819BB2528D26A006FA6F7 /* TitleSupplementaryView.swift in Sources */,
+				1CC717B8257B823C00CA50CA /* BadgeSupplementaryView.swift in Sources */,
 				1C1819C9252A29BF006FA6F7 /* MainItemCell.swift in Sources */,
 				1CB69C4E2531CB0E00C5EEB6 /* CategoryListCell.swift in Sources */,
 				1CB69D3725323F0100C5EEB6 /* WideItemCell.swift in Sources */,
