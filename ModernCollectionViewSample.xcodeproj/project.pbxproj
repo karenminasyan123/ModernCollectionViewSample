@@ -116,8 +116,8 @@
 				1C4D2887253C3772007FE181 /* SupplementaryItemsViewController.swift */,
 				1C4D288A253C651D007FE181 /* NestedGroupsViewController.swift */,
 				1C61FEB0253CD7020026A4CE /* ScrollBehaviorsViewController.swift */,
-				1C89CC4D254DD01400A26590 /* WaterfallLayoutViewController.swift */,
 				1CD2A91E252877FE004BBD65 /* AppStoreViewController.swift */,
+				1C89CC4D254DD01400A26590 /* WaterfallLayoutViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

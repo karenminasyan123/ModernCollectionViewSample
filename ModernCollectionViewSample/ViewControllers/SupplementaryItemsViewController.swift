@@ -33,12 +33,8 @@ extension SupplementaryItemsViewController {
 
     private func createLayout() -> UICollectionViewCompositionalLayout {
         let badgeAnchor = NSCollectionLayoutAnchor(edges: [.top, .trailing], fractionalOffset: CGPoint(x: 0.3, y: -0.3))
-        let badgeSize = NSCollectionLayoutSize(widthDimension: .absolute(20),
-                                               heightDimension: .absolute(20))
-        let badge = NSCollectionLayoutSupplementaryItem(
-            layoutSize: badgeSize,
-            elementKind: badgeKind,
-            containerAnchor: badgeAnchor)
+        let badgeSize = NSCollectionLayoutSize(widthDimension: .absolute(20), heightDimension: .absolute(20))
+        let badge = NSCollectionLayoutSupplementaryItem(layoutSize: badgeSize, elementKind: badgeKind, containerAnchor: badgeAnchor)
 
         let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(100), heightDimension: .absolute(100))
         let item = NSCollectionLayoutItem(layoutSize: itemSize, supplementaryItems: [badge])
