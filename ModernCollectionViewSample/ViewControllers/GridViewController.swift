@@ -23,7 +23,7 @@ final class GridViewController: UIViewController {
     }
 
     func getImageNames() -> [String] {
-        (1...101).map { "image\($0)" }
+        (1...8).map { "image\($0)" }
     }
 }
 
@@ -74,5 +74,14 @@ extension GridViewController {
 extension GridViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
+
+        let snapshot = dataSource.snapshot()
+        var items = snapshot.itemIdentifiers
+        items.shuffle()
+
+        var newSnapshot = NSDiffableDataSourceSnapshot<Section, String>()
+        newSnapshot.appendSections([.main])
+        newSnapshot.appendItems(items)
+        dataSource.apply(newSnapshot, animatingDifferences: true)
     }
 }

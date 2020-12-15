@@ -16,7 +16,7 @@ final class ScrollBehaviorsViewController: UIViewController {
              groupPaging,
              groupPagingCentered,
              none
-        
+
         func orthogonalScrollingBehaviour() -> UICollectionLayoutSectionOrthogonalScrollingBehavior {
             switch self {
             case .continuous:

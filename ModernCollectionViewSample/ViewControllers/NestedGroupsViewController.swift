@@ -56,14 +56,14 @@ extension NestedGroupsViewController {
 
         return layout
     }
-    
+
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, String> {cell, title, IndexPath in
             cell.backgroundColor = .systemIndigo
             cell.layer.borderColor = UIColor.systemBlue.cgColor
             cell.layer.borderWidth = 1
         }
-        
+
         dataSource = UICollectionViewDiffableDataSource<Section, String>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, title) in
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: title)
         })

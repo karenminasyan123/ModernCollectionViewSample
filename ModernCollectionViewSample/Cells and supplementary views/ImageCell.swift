@@ -57,7 +57,7 @@ extension ImageCell {
         case .shadow:
             imageView.layer.masksToBounds = false
             imageView.layer.shadowOpacity = 1
-            imageView.layer.shadowColor = UIColor.gray.cgColor
+            imageView.layer.shadowColor = UIColor.systemGray.cgColor
             imageView.layer.shadowOffset = CGSize(width: 5,height: 5)
 
             // UI Performance Fix
